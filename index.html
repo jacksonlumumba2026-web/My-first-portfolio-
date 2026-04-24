@@ -1,88 +1,67 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en" style="scroll-behavior: smooth;">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jackson | Web Developer</title>
-  <style>
-    :root{
-      --bg:#0f172a; /* slate-900 */
-      --card:#111827; /* gray-900 */
-      --text:#e5e7eb; /* gray-200 */
-      --muted:#9ca3af; /* gray-400 */
-      --accent:#38bdf8; /* sky-400 */
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu;
-      background:linear-gradient(180deg,#020617, var(--bg)); color:var(--text);
-    }
-    .container{max-width:900px; margin:auto; padding:24px}
-    header{display:grid; gap:16px; align-items:center}
-    .badge{display:inline-block; padding:6px 10px; border-radius:999px; background:rgba(56,189,248,.15); color:var(--accent); width:max-content}
-    h1{font-size:clamp(28px,5vw,44px); margin:0}
-    p{color:var(--muted); line-height:1.6}
-    .cta{display:flex; gap:12px; flex-wrap:wrap}
-    .btn{padding:12px 16px; border-radius:12px; background:var(--accent); color:#001018; font-weight:600; text-decoration:none}
-    .btn.alt{background:transparent; color:var(--text); border:1px solid #1f2937}
-    section{margin-top:40px}
-    .grid{display:grid; gap:16px}
-    @media(min-width:640px){.grid{grid-template-columns:repeat(2,1fr)}}
-    .card{background:linear-gradient(180deg,#020617, var(--card)); border:1px solid #1f2937; border-radius:20px; padding:18px}
-    .card h3{margin:0 0 8px}
-    .tag{display:inline-block; padding:6px 10px; border-radius:999px; border:1px solid #1f2937; color:var(--muted); margin-right:6px; margin-bottom:6px}
-    footer{margin:48px 0 12px; text-align:center; color:var(--muted)}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jackson | Frontend Developer</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container">
-    <header>
-      <span class="badge">Available for small projects</span>
-      <h1>Hi, I’m Jackson 👋<br/>I build clean, fast websites.</h1>
-      <p>Beginner web developer focused on landing pages and simple business sites. Built with HTML, CSS, and mobile-first design.</p>
-      <div class="cta">
-        <a class="btn" href="#projects">View Projects</a>
-        <a class="btn alt" href="#contact">Contact</a>
-      </div>
-    </header><section id="skills">
-  <h2>Skills</h2>
-  <div class="card">
-    <span class="tag">HTML5</span>
-    <span class="tag">CSS3</span>
-    <span class="tag">Responsive Design</span>
-    <span class="tag">Landing Pages</span>
-    <span class="tag">Basic JavaScript</span>
-  </div>
+
+<!-- HERO -->
+<header class="hero">
+    <h1>I build modern websites for businesses</h1>
+    <p>Frontend Developer • Clean • Responsive • Fast</p>
+    <button onclick="scrollToProjects()">View My Work</button>
+</header>
+
+<!-- ABOUT -->
+<section class="about">
+    <h2>About Me</h2>
+    <p>
+        I am a frontend developer who helps businesses grow their online presence 
+        by building clean, modern, and responsive websites.
+    </p>
 </section>
 
-<section id="projects">
-  <h2>Projects</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>Simple Landing Page</h3>
-      <p>Mobile-first landing page with hero section, features, and call-to-action.</p>
-      <p><strong>Tech:</strong> HTML, CSS</p>
+<!-- PROJECTS -->
+<section class="projects">
+    <h2>My Projects</h2>
+
+    <div class="project-card">
+        <h3>Business Website</h3>
+        <p>Responsive business landing page built with HTML & CSS.</p>
+        <button>View Project</button>
     </div>
-    <div class="card">
-      <h3>Personal Portfolio</h3>
-      <p>Clean one-page portfolio to showcase skills and contact info.</p>
-      <p><strong>Tech:</strong> HTML, CSS</p>
+
+    <div class="project-card">
+        <h3>Profile Page</h3>
+        <p>Clean personal profile page with modern UI design.</p>
+        <button>View Project</button>
     </div>
-  </div>
+
 </section>
 
-<section id="contact">
-  <h2>Contact</h2>
-  <div class="card">
-    <p>Email: <em>jacksonlumumba275@gmail.com</em></p>
-    <p>GitHub: <em>github.com/jackson lumumba2026-web</em></p>
-  
-  </div>
+<!-- CONTACT -->
+<section class="contact">
+    <h2>Contact</h2>
+    <p>Email: jacksonlumumba275@gmail.com</p>
+    <button>Contact Me</button>
 </section>
 
+<!-- FOOTER -->
 <footer>
-  <small>© 2026 Jackson. Built on a phone 📱</small>
+    <p>© 2026 Jackson Web Solutions</p>
 </footer>
 
-  </main>
+<!-- JS -->
+<script>
+function scrollToProjects() {
+    document.querySelector('.projects').scrollIntoView({
+        behavior: 'smooth'
+    });
+}
+</script>
+
 </body>
 </html>
