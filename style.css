@@ -1,145 +1,18 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    color: #e2e8f0;
-    background: linear-gradient(to bottom, #0f172a, #020617);
-    max-width: 500px;
-    margin: auto;
-    transition: 0.3s;
-}
-
-/* LIGHT MODE */
-.light-mode {
-    background: linear-gradient(to bottom, #ffffff, #e2e8f0);
-    color: #0f172a;
-}
-
-.light-mode .project-card {
-    background: rgba(0,0,0,0.05);
-}
-
-/* NAVBAR */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    padding: 15px 20px;
-    position: sticky;
-    top: 0;
-    backdrop-filter: blur(12px);
-    background: rgba(15, 23, 42, 0.7);
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-}
-
-.nav-links a {
-    color: #e2e8f0;
-    text-decoration: none;
-    margin-left: 10px;
-}
-
-/* TOGGLE */
-.toggle {
-    text-align: right;
-    padding: 10px;
-}
-
-/* HERO */
-.hero {
-    text-align: center;
-    padding: 120px 20px;
-    background: radial-gradient(circle at top, #3b82f6, #0f172a);
-}
-
-.hero h1, .hero p {
-    animation: fadeIn 1s ease forwards;
-    opacity: 0;
-}
-
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* BUTTON */
-button {
-    background: linear-gradient(135deg, #3b82f6, #60a5fa);
-    border: none;
-    border-radius: 999px;
-    padding: 12px 25px;
-    color: white;
-    font-weight: bold;
-    letter-spacing: 0.5px;
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-
-button:hover {
-    transform: translateY(-2px) scale(1.05);
-    box-shadow: 0 10px 20px rgba(59,130,246,0.4);
-}
-
-/* SECTIONS */
+/* GENERAL */
 section {
-    padding: 60px 20px;
-}
-
-/* PROJECTS */
-.projects {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-}
-
-.project-card {
-    flex: 1 1 45%;
-    padding: 20px;
-    border-radius: 20px;
-    background: rgba(255,255,255,0.05);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,0.1);
-    opacity: 0;
-    transform: translateY(40px);
-    transition: 0.4s ease;
-}
-
-.project-card.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.project-card:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-}
-
-/* OFFER */
-.offer ul {
-    list-style: none;
-    margin-top: 10px;
-}
-
-/* FOOTER */
-footer {
+    padding: 40px 20px;
     text-align: center;
-    padding: 20px;
 }
 
-/* DESKTOP */
-@media (min-width: 768px) {
-    body {
-        max-width: 900px;
-    }
+/* SERVICES */
+.service-box {
+    background: #1e293b;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 10px;
+}
 
-    .project-card {
-        flex: 1 1 30%;
-    }
-    }
+/* PROJECT BUTTONS */
 .buttons {
     display: flex;
     flex-direction: column;
@@ -153,7 +26,6 @@ footer {
     border-radius: 10px;
     border: none;
     cursor: pointer;
-    font-weight: bold;
 }
 
 /* COLORS */
@@ -172,7 +44,17 @@ footer {
     color: white;
 }
 
-/* HOVER */
-.buttons button:hover {
-    transform: scale(1.05);
+/* TESTIMONIAL */
+.testimonial {
+    background: #1e293b;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 10px;
+    font-style: italic;
+}
+
+/* CTA */
+.cta button {
+    background: #22c55e;
+    margin-top: 10px;
 }
