@@ -140,3 +140,39 @@ footer {
         flex: 1 1 30%;
     }
     }
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.buttons button {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* COLORS */
+.demo {
+    background: #3b82f6;
+    color: white;
+}
+
+.contact {
+    background: #22c55e;
+    color: white;
+}
+
+.whatsapp {
+    background: #25D366;
+    color: white;
+}
+
+/* HOVER */
+.buttons button:hover {
+    transform: scale(1.05);
+}
