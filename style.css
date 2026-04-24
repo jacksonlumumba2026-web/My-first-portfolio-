@@ -10,52 +10,83 @@ body {
     background: linear-gradient(to bottom, #0f172a, #020617);
     max-width: 500px;
     margin: auto;
+    transition: 0.3s;
+}
+
+/* LIGHT MODE */
+.light-mode {
+    background: linear-gradient(to bottom, #ffffff, #e2e8f0);
+    color: #0f172a;
+}
+
+.light-mode .project-card {
+    background: rgba(0,0,0,0.05);
+}
+
+/* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 20px;
+    position: sticky;
+    top: 0;
+    backdrop-filter: blur(12px);
+    background: rgba(15, 23, 42, 0.7);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.nav-links a {
+    color: #e2e8f0;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+/* TOGGLE */
+.toggle {
+    text-align: right;
+    padding: 10px;
 }
 
 /* HERO */
 .hero {
     text-align: center;
-    padding: 100px 20px;
-    background: linear-gradient(135deg, #3b82f6, #1e3a8a);
+    padding: 120px 20px;
+    background: radial-gradient(circle at top, #3b82f6, #0f172a);
 }
 
-.hero h1 {
-    font-size: 32px;
-    margin-bottom: 10px;
+.hero h1, .hero p {
+    animation: fadeIn 1s ease forwards;
+    opacity: 0;
 }
 
-.hero p {
-    opacity: 0.8;
-    margin-bottom: 20px;
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* BUTTON */
 button {
-    background: #3b82f6;
-    color: white;
+    background: linear-gradient(135deg, #3b82f6, #60a5fa);
     border: none;
-    border-radius: 12px;
+    border-radius: 999px;
     padding: 12px 25px;
-    transition: 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    color: white;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
     cursor: pointer;
 }
 
 button:hover {
-    transform: scale(1.05);
-    background: #2563eb;
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(59,130,246,0.4);
 }
 
 /* SECTIONS */
 section {
-    padding: 30px 20px;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-}
-
-/* HEADINGS */
-h2 {
-    font-size: 22px;
-    margin-bottom: 15px;
+    padding: 60px 20px;
 }
 
 /* PROJECTS */
@@ -67,35 +98,45 @@ h2 {
 
 .project-card {
     flex: 1 1 45%;
-    background: #1e293b;
     padding: 20px;
-    border-radius: 15px;
-    transition: 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    border-radius: 20px;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.1);
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 0.4s ease;
 }
 
-.project-card h3 {
-    margin-bottom: 10px;
-}
-
-.project-card p {
-    font-size: 14px;
-    margin-bottom: 10px;
+.project-card.show {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .project-card:hover {
-    transform: translateY(-8px);
-    background: #334155;
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
 }
 
-/* CONTACT */
-.contact p {
-    margin-bottom: 10px;
+/* OFFER */
+.offer ul {
+    list-style: none;
+    margin-top: 10px;
 }
 
 /* FOOTER */
 footer {
     text-align: center;
     padding: 20px;
-    opacity: 0.7;
-  }
+}
+
+/* DESKTOP */
+@media (min-width: 768px) {
+    body {
+        max-width: 900px;
+    }
+
+    .project-card {
+        flex: 1 1 30%;
+    }
+    }
