@@ -8,45 +8,84 @@
 </head>
 <body>
 
+<!-- NAVBAR -->
+<nav class="navbar">
+    <h2>Jackson</h2>
+    <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </div>
+</nav>
+
+<!-- TOGGLE -->
+<div class="toggle">
+    <button onclick="toggleMode()">🌙</button>
+</div>
+
 <!-- HERO -->
 <header class="hero">
-    <h1>I build modern websites for businesses</h1>
-    <p>Frontend Developer • Clean • Responsive • Fast</p>
+    <h1>I build websites that help businesses grow</h1>
+    <p>Frontend Developer • Fast • Responsive • Professional</p>
     <button onclick="scrollToProjects()">View My Work</button>
 </header>
 
 <!-- ABOUT -->
-<section class="about">
+<section id="about">
     <h2>About Me</h2>
-    <p>
-        I am a frontend developer who helps businesses grow their online presence 
-        by building clean, modern, and responsive websites.
-    </p>
+    <p>I create modern, responsive websites that help businesses grow online.</p>
 </section>
 
 <!-- PROJECTS -->
-<section class="projects">
+<section id="projects" class="projects">
     <h2>My Projects</h2>
 
     <div class="project-card">
         <h3>Business Website</h3>
-        <p>Responsive business landing page built with HTML & CSS.</p>
-        <button>View Project</button>
+        <p>Responsive landing page.</p>
+        <button onclick="openProject()">View Project</button>
     </div>
 
     <div class="project-card">
         <h3>Profile Page</h3>
-        <p>Clean personal profile page with modern UI design.</p>
-        <button>View Project</button>
+        <p>Clean UI design.</p>
+        <button onclick="openProject()">View Project</button>
+    </div>
+
+    <div class="project-card">
+        <h3>Landing Page UI</h3>
+        <p>Modern layout design.</p>
+        <button onclick="openProject()">View Project</button>
+    </div>
+
+    <div class="project-card">
+        <h3>Contact Form</h3>
+        <p>Styled form UI.</p>
+        <button onclick="openProject()">View Project</button>
     </div>
 
 </section>
 
+<!-- OFFER -->
+<section class="offer">
+    <h2>What I Offer</h2>
+    <ul>
+        <li>✔ Business Websites</li>
+        <li>✔ Landing Pages</li>
+        <li>✔ Mobile-Friendly Design</li>
+    </ul>
+</section>
+
+<!-- SKILLS -->
+<section class="skills">
+    <h2>My Skills</h2>
+    <p>HTML • CSS • JavaScript • Responsive Design</p>
+</section>
+
 <!-- CONTACT -->
-<section class="contact">
-    <h2>Contact</h2>
-    <p>Email: jacksonlumumba275@gmail.com</p>
-    <button>Contact Me</button>
+<section id="contact">
+    <h2>Let’s Work Together</h2>
+    <button onclick="contactMe()">Hire Me</button>
 </section>
 
 <!-- FOOTER -->
@@ -54,14 +93,7 @@
     <p>© 2026 Jackson Web Solutions</p>
 </footer>
 
-<!-- JS -->
-<script>
-function scrollToProjects() {
-    document.querySelector('.projects').scrollIntoView({
-        behavior: 'smooth'
-    });
-}
-</script>
+<script src="script.js"></script>
 
 </body>
-</html>
+    </html>
