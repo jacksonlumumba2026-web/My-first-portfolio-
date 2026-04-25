@@ -1,6 +1,6 @@
 function scrollToProjects() {
-    document.querySelector('#projects').scrollIntoView({
-        behavior: 'smooth'
+    document.getElementById("projects").scrollIntoView({
+        behavior: "smooth"
     });
 }
 
