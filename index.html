@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" style="scroll-behavior: smooth;">
+<html lang="en" style="scroll-behavior:smooth;">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +11,7 @@
 <!-- NAVBAR -->
 <nav class="navbar">
     <h2>Jackson</h2>
-    <div class="nav-links">
+    <div>
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
@@ -22,121 +22,80 @@
 <header class="hero">
     <h1>I build websites that help businesses grow</h1>
     <p>Frontend Developer • Fast • Responsive • Professional</p>
-    <button onclick="scrollToProjects()">View My Work</button>
+
+    <div class="hero-buttons">
+        <button onclick="scrollToProjects()">View My Work</button>
+
+        <a href="mailto:jacksonlumumba275@gmail.com">
+            <button class="hire">Hire Me</button>
+        </a>
+    </div>
 </header>
 
 <!-- ABOUT -->
 <section id="about">
     <h2>About Me</h2>
-    <p>
-        I help businesses create clean, modern, and responsive websites 
-        that attract more customers.
-    </p>
-
-    <p>
-        ✔ Mobile-friendly websites <br>
-        ✔ Fast loading performance <br>
-        ✔ Clean modern design
-    </p>
+    <p>I create clean and responsive websites for businesses.</p>
+    <p>Trusted to build modern and responsive websites that attract customers.</p>
 </section>
 
 <!-- SERVICES -->
 <section class="services">
     <h2>My Services</h2>
-
-    <div class="service-box">🌐 Business Website Design</div>
-    <div class="service-box">📱 Mobile Responsive Design</div>
-    <div class="service-box">🎨 Modern UI/UX Design</div>
-    <div class="service-box">🔐 Login / Signup UI</div>
-</section>
-
-<!-- WHY -->
-<section class="why">
-    <h2>Why Choose Me</h2>
-
-    <p>✔ Clean and modern design</p>
-    <p>✔ Fast delivery</p>
-    <p>✔ Mobile-friendly websites</p>
-    <p>✔ Professional communication</p>
+    <div class="box">🌐 Website Design</div>
+    <div class="box">📱 Responsive Design</div>
+    <div class="box">🎨 UI Design</div>
 </section>
 
 <!-- PROJECTS -->
-<section id="projects" class="projects">
+<section id="projects">
     <h2>My Projects</h2>
 
-    <!-- RESTAURANT -->
-    <div class="project-card">
+    <div class="card">
         <h3>Restaurant Website</h3>
-        <p>Modern restaurant website with menu and ordering features.</p>
+        <p>Modern restaurant website with menu and ordering system.</p>
 
-        <div class="buttons">
-            <a href="https://jacksonlumumba2026-web.github.io/Restaurant-/" target="_blank">
-                <button class="demo">Live Demo</button>
-            </a>
+        <a href="https://jacksonlumumba2026-web.github.io/Restaurant-/" target="_blank">
+            <button>Live Demo</button>
+        </a>
 
-            <a href="mailto:jacksonlumumba275@gmail.com">
-                <button class="contact">Contact Me</button>
-            </a>
-
-            <a href="https://wa.me/254741590397" target="_blank">
-                <button class="whatsapp">WhatsApp</button>
-            </a>
-        </div>
+        <a href="mailto:jacksonlumumba275@gmail.com">
+            <button class="hire">Get This Website</button>
+        </a>
     </div>
 
-    <!-- LOGIN -->
-    <div class="project-card">
+    <div class="card">
         <h3>Login / Signup UI</h3>
-        <p>Interactive login and signup system with password toggle.</p>
+        <p>Interactive login system with password toggle.</p>
 
-        <div class="buttons">
-            <a href="https://jacksonlumumba2026-web.github.io/Login-sign-up-/" target="_blank">
-                <button class="demo">Live Demo</button>
-            </a>
+        <a href="https://jacksonlumumba2026-web.github.io/Login-sign-up-/" target="_blank">
+            <button>Live Demo</button>
+        </a>
 
-            <a href="mailto:jacksonlumumba275@gmail.com">
-                <button class="contact">Contact Me</button>
-            </a>
-
-            <a href="https://wa.me/254741590397" target="_blank">
-                <button class="whatsapp">WhatsApp</button>
-            </a>
-        </div>
+        <a href="mailto:jacksonlumumba275@gmail.com">
+            <button class="hire">Get This Website</button>
+        </a>
     </div>
 
-</section>
-
-<!-- TESTIMONIALS -->
-<section class="testimonials">
-    <h2>What Clients Say</h2>
-
-    <div class="testimonial">
-        <p>"Great work! Clean and fast website."</p>
-        <span>- Client</span>
-    </div>
-
-    <div class="testimonial">
-        <p>"Very professional and easy to work with."</p>
-        <span>- Business Owner</span>
-    </div>
 </section>
 
 <!-- CTA -->
 <section class="cta">
-    <h2>Ready to build your website?</h2>
-    <p>Let’s work together and grow your business online.</p>
+    <h2>Need a Website?</h2>
+    <p>Let’s build something amazing together.</p>
 
     <a href="mailto:jacksonlumumba275@gmail.com">
-        <button>Hire Me Now</button>
+        <button class="hire">Hire Me Now</button>
     </a>
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="contact">
-    <h2>Let’s Work Together</h2>
-    <p>Need a website? I’m available for freelance work.</p>
+<section id="contact">
+    <h2>Contact Me</h2>
+    <p>Email: jacksonlumumba275@gmail.com</p>
+    <p>Phone: 0741590397</p>
 
-    <button onclick="contactMe()">Hire Me</button>
+    <button onclick="contactMe()">Send Email</button>
 </section>
 
 <!-- FOOTER -->
@@ -144,7 +103,12 @@
     <p>© 2026 Jackson Web Solutions</p>
 </footer>
 
+<!-- WHATSAPP FLOAT BUTTON -->
+<a href="https://wa.me/254741590397" class="whatsapp-float" target="_blank">
+    💬
+</a>
+
 <script src="script.js"></script>
 
 </body>
-        </html>
+</html>
