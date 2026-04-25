@@ -5,7 +5,608 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Jackson Lumumba | Frontend Developer</title>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="style.css"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a0f;
+      --surface: #13131a;
+      --border: #1e1e2e;
+      --accent: #00e5a0;
+      --accent2: #00b8ff;
+      --text: #e8e8f0;
+      --muted: #6b6b85;
+      --card: #0f0f18;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ---- NOISE OVERLAY ---- */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.4;
+    }
+
+    /* ---- NAV ---- */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 5%;
+      background: rgba(10,10,15,0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.3rem;
+      color: var(--accent);
+      letter-spacing: -0.5px;
+    }
+
+    .logo span { color: var(--text); }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2.5rem;
+    }
+
+    nav ul a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+      letter-spacing: 0.02em;
+    }
+
+    nav ul a:hover { color: var(--accent); }
+
+    .nav-cta {
+      background: var(--accent);
+      color: #000 !important;
+      padding: 0.5rem 1.2rem;
+      border-radius: 6px;
+      font-weight: 600 !important;
+    }
+
+    .nav-cta:hover { background: #00c987; color: #000 !important; }
+
+    /* ---- HERO ---- */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 8rem 5% 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-glow {
+      position: absolute;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(0,229,160,0.08) 0%, transparent 70%);
+      top: 10%; left: -10%;
+      pointer-events: none;
+    }
+
+    .hero-glow2 {
+      position: absolute;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(0,184,255,0.06) 0%, transparent 70%);
+      bottom: 10%; right: 5%;
+      pointer-events: none;
+    }
+
+    .hero-content { max-width: 720px; }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(0,229,160,0.08);
+      border: 1px solid rgba(0,229,160,0.2);
+      color: var(--accent);
+      padding: 0.4rem 1rem;
+      border-radius: 100px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      margin-bottom: 1.8rem;
+      letter-spacing: 0.04em;
+    }
+
+    .hero-badge::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.3); }
+    }
+
+    h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -2px;
+      margin-bottom: 1.5rem;
+    }
+
+    h1 .highlight {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-sub {
+      font-size: 1.15rem;
+      color: var(--muted);
+      max-width: 520px;
+      margin-bottom: 2.5rem;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--accent);
+      color: #000;
+      padding: 0.85rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.2s;
+      letter-spacing: 0.01em;
+    }
+
+    .btn-primary:hover {
+      background: #00c987;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(0,229,160,0.3);
+    }
+
+    .btn-outline {
+      display: inline-block;
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 0.85rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: all 0.2s;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    /* ---- STATS ---- */
+    .stats {
+      display: flex;
+      gap: 3rem;
+      margin-top: 4rem;
+      padding-top: 3rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .stat-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--accent);
+    }
+
+    .stat-label {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-top: 0.2rem;
+      letter-spacing: 0.03em;
+    }
+
+    /* ---- SECTIONS ---- */
+    section { padding: 6rem 5%; }
+
+    .section-tag {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.8rem;
+    }
+
+    h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 1rem;
+    }
+
+    .section-sub {
+      color: var(--muted);
+      font-size: 1rem;
+      max-width: 500px;
+      margin-bottom: 3.5rem;
+      font-weight: 300;
+    }
+
+    /* ---- ABOUT ---- */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .about-img-wrap {
+      position: relative;
+    }
+
+    .about-img-placeholder {
+      width: 100%;
+      aspect-ratio: 4/5;
+      background: var(--surface);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .avatar-icon {
+      width: 80px; height: 80px;
+      background: var(--border);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+    }
+
+    .about-img-placeholder small {
+      font-size: 0.75rem;
+      opacity: 0.5;
+    }
+
+    .accent-box {
+      position: absolute;
+      bottom: -20px; right: -20px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #000;
+      padding: 1.2rem 1.5rem;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      font-family: 'Syne', sans-serif;
+    }
+
+    .about-text p {
+      color: var(--muted);
+      margin-bottom: 1.2rem;
+      font-weight: 300;
+      line-height: 1.8;
+    }
+
+    /* ---- SKILLS ---- */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .skill-chip {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem;
+      text-align: center;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+
+    .skill-chip:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-3px);
+    }
+
+    .skill-chip .icon { font-size: 1.5rem; display: block; margin-bottom: 0.4rem; }
+
+    /* ---- SERVICES ---- */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .service-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      transition: all 0.25s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      opacity: 0;
+      transition: opacity 0.25s;
+    }
+
+    .service-card:hover { border-color: rgba(0,229,160,0.2); transform: translateY(-4px); }
+    .service-card:hover::before { opacity: 1; }
+
+    .service-icon {
+      font-size: 2rem;
+      margin-bottom: 1.2rem;
+      display: block;
+    }
+
+    .service-card h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.7rem;
+    }
+
+    .service-card p { color: var(--muted); font-size: 0.9rem; font-weight: 300; }
+
+    /* ---- PROJECTS ---- */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all 0.25s;
+    }
+
+    .project-card:hover { border-color: rgba(0,229,160,0.25); transform: translateY(-4px); }
+
+    .project-thumb {
+      height: 180px;
+      background: linear-gradient(135deg, var(--surface), var(--border));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-thumb::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(0,229,160,0.05), rgba(0,184,255,0.05));
+    }
+
+    .project-body { padding: 1.5rem; }
+
+    .project-tag {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+    }
+
+    .project-body h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+    }
+
+    .project-body p { color: var(--muted); font-size: 0.88rem; margin-bottom: 1.2rem; font-weight: 300; }
+
+    .project-links { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+
+    .project-links a {
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.4rem 1rem;
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+
+    .link-demo {
+      background: var(--accent);
+      color: #000;
+    }
+
+    .link-demo:hover { background: #00c987; }
+
+    .link-wa {
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+
+    .link-wa:hover { border-color: #25D366; color: #25D366; }
+
+    /* ---- CTA ---- */
+    .cta-section {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .cta-section h2 { margin-bottom: 1rem; }
+    .cta-section p { color: var(--muted); margin-bottom: 2rem; font-weight: 300; }
+
+    .cta-btns { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+
+    /* ---- CONTACT ---- */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .contact-info { }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.2rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 1rem;
+      text-decoration: none;
+      color: var(--text);
+      transition: all 0.2s;
+    }
+
+    .contact-item:hover { border-color: var(--accent); }
+
+    .contact-icon {
+      width: 42px; height: 42px;
+      background: rgba(0,229,160,0.08);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .contact-label { font-size: 0.72rem; color: var(--muted); margin-bottom: 0.2rem; letter-spacing: 0.06em; text-transform: uppercase; }
+    .contact-val { font-weight: 500; font-size: 0.92rem; }
+
+    .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+
+    .contact-form input,
+    .contact-form textarea {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.9rem 1.2rem;
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus { border-color: var(--accent); }
+
+    .contact-form textarea { height: 130px; resize: vertical; }
+
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder { color: var(--muted); }
+
+    /* ---- FOOTER ---- */
+    footer {
+      padding: 2rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    footer a { color: var(--accent); text-decoration: none; }
+
+    /* ---- FLOATING WA ---- */
+    .wa-float {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 52px; height: 52px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+      z-index: 200;
+      text-decoration: none;
+      transition: transform 0.2s;
+    }
+
+    .wa-float:hover { transform: scale(1.1); }
+
+    /* ---- ANIMATIONS ---- */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* ---- RESPONSIVE ---- */
+    @media (max-width: 768px) {
+      nav ul { display: none; }
+      .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .stats { gap: 1.5rem; flex-wrap: wrap; }
+      h1 { letter-spacing: -1px; }
+      section { padding: 4rem 5%; }
+    }
+  </style>
 </head>
 <body>
 
@@ -26,10 +627,7 @@
   <div class="hero-glow"></div>
   <div class="hero-glow2"></div>
   <div class="hero-content">
-    <div class="hero-badge">
-      <span class="badge-dot"></span>
-      Available for freelance work
-    </div>
+    <div class="hero-badge">Available for freelance work</div>
     <h1>I build websites<br>that <span class="highlight">grow</span><br>your business.</h1>
     <p class="hero-sub">Frontend developer crafting fast, modern, and responsive websites that convert visitors into customers. Based in Kenya 🇰🇪</p>
     <div class="hero-btns">
@@ -37,15 +635,15 @@
       <a href="https://wa.me/254741590397" class="btn-outline" target="_blank">💬 WhatsApp Me</a>
     </div>
     <div class="stats">
-      <div class="stat">
+      <div>
         <div class="stat-num">2+</div>
         <div class="stat-label">Projects Built</div>
       </div>
-      <div class="stat">
+      <div>
         <div class="stat-num">100%</div>
         <div class="stat-label">Client Satisfaction</div>
       </div>
-      <div class="stat">
+      <div>
         <div class="stat-num">Fast</div>
         <div class="stat-label">Delivery Time</div>
       </div>
@@ -70,6 +668,7 @@
       <p>Hi, I'm Jackson Lumumba — a passionate frontend developer from Kenya. I specialize in building clean, modern websites that help businesses attract customers and grow their online presence.</p>
       <p>I started my coding journey with a love for design and problem-solving. Today I build websites using HTML, CSS, and JavaScript — writing every line of code with care to ensure it's fast, responsive, and visually impressive.</p>
       <p>Whether you need a business website, a landing page, or a custom UI — I deliver professional results on time and within budget.</p>
+
       <div class="section-tag" style="margin-top:2rem;">Tech Stack</div>
       <div class="skills-grid">
         <div class="skill-chip"><span class="icon">🌐</span>HTML5</div>
@@ -84,7 +683,7 @@
 </section>
 
 <!-- SERVICES -->
-<section id="services" class="services-section">
+<section id="services" style="background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
   <div class="section-tag">What I Do</div>
   <h2>Services</h2>
   <p class="section-sub">Everything you need to get your business online and looking great.</p>
@@ -123,106 +722,4 @@
       <div class="project-body">
         <div class="project-tag">Restaurant Website</div>
         <h3>Restaurant Website</h3>
-        <p>Modern restaurant site with a full menu, gallery, and WhatsApp ordering integration — ready for real customers.</p>
-        <div class="project-links">
-          <a href="https://jacksonlumumba2026-web.github.io/Restaurant-/" target="_blank" class="link-demo">Live Demo</a>
-          <a href="https://wa.me/254741590397" target="_blank" class="link-wa">💬 Get This</a>
-        </div>
-      </div>
-    </div>
-    <div class="project-card fade-up">
-      <div class="project-thumb">🔐</div>
-      <div class="project-body">
-        <div class="project-tag">UI Component</div>
-        <h3>Login / Signup UI</h3>
-        <p>Interactive authentication UI with password visibility toggle, clean form validation, and smooth transitions.</p>
-        <div class="project-links">
-          <a href="https://jacksonlumumba2026-web.github.io/Login-sign-up-/" target="_blank" class="link-demo">Live Demo</a>
-          <a href="https://wa.me/254741590397" target="_blank" class="link-wa">💬 Get This</a>
-        </div>
-      </div>
-    </div>
-    <div class="project-card fade-up dashed-card">
-      <div class="project-thumb">➕</div>
-      <div class="project-body">
-        <div class="project-tag">Coming Soon</div>
-        <h3>Next Project</h3>
-        <p>More exciting projects coming soon. Got an idea? Let's build something together.</p>
-        <div class="project-links">
-          <a href="https://wa.me/254741590397" target="_blank" class="link-wa">💬 Let's Talk</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="cta-section fade-up">
-  <div class="section-tag">Ready to Start?</div>
-  <h2>Need a website for your business?</h2>
-  <p>I'll design and deliver a professional website that makes your business stand out. Fast turnaround, affordable pricing.</p>
-  <div class="cta-btns">
-    <a href="https://wa.me/254741590397" target="_blank" class="btn-primary">💬 WhatsApp Me Now</a>
-    <a href="mailto:jacksonlumumba275@gmail.com" class="btn-outline">📧 Send an Email</a>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-  <div class="section-tag">Get In Touch</div>
-  <h2>Contact Me</h2>
-  <p class="section-sub">Have a project in mind? Let's talk — I usually respond within a few hours.</p>
-  <div class="contact-grid">
-    <div class="contact-info">
-      <a href="mailto:jacksonlumumba275@gmail.com" class="contact-item">
-        <div class="contact-icon">📧</div>
-        <div>
-          <div class="contact-label">Email</div>
-          <div class="contact-val">jacksonlumumba275@gmail.com</div>
-        </div>
-      </a>
-      <a href="tel:+254741590397" class="contact-item">
-        <div class="contact-icon">📞</div>
-        <div>
-          <div class="contact-label">Phone</div>
-          <div class="contact-val">+254 741 590 397</div>
-        </div>
-      </a>
-      <a href="https://wa.me/254741590397" target="_blank" class="contact-item">
-        <div class="contact-icon">💬</div>
-        <div>
-          <div class="contact-label">WhatsApp</div>
-          <div class="contact-val">Chat with me directly</div>
-        </div>
-      </a>
-      <a href="https://github.com/jacksonlumumba2026-web" target="_blank" class="contact-item">
-        <div class="contact-icon">🐙</div>
-        <div>
-          <div class="contact-label">GitHub</div>
-          <div class="contact-val">See my code</div>
-        </div>
-      </a>
-    </div>
-    <div class="contact-form">
-      <input type="text" placeholder="Your Name" />
-      <input type="email" placeholder="Your Email" />
-      <input type="text" placeholder="Subject (e.g. I need a restaurant website)" />
-      <textarea placeholder="Tell me about your project..."></textarea>
-      <a href="mailto:jacksonlumumba275@gmail.com" class="btn-primary send-btn">Send Message →</a>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div>© 2026 Jackson Lumumba · All rights reserved</div>
-  <div>Built with ❤️ in Kenya 🇰🇪</div>
-</footer>
-
-<!-- FLOATING WHATSAPP -->
-<a href="https://wa.me/254741590397" class="wa-float" target="_blank" title="Chat on WhatsApp">💬</a>
-
-<script src="script.js"></script>
-</body>
-    </html>
-            
+        <p>Modern restaurant site with a full menu, gallery, and WhatsApp ordering integration — ready fpp
