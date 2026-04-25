@@ -1,63 +1,3 @@
-/* GENERAL */
-section {
-    padding: 40px 20px;
-    text-align: center;
-}
-
-/* SERVICES */
-.service-box {
-    background: #1e293b;
-    padding: 15px;
-    margin: 10px 0;
-    border-radius: 10px;
-}
-
-/* PROJECT BUTTONS */
-.buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin-top: 10px;
-}
-
-.buttons button {
-    width: 100%;
-    padding: 10px;
-    border-radius: 10px;
-    border: none;
-    cursor: pointer;
-}
-
-/* COLORS */
-.demo {
-    background: #3b82f6;
-    color: white;
-}
-
-.contact {
-    background: #22c55e;
-    color: white;
-}
-
-.whatsapp {
-    background: #25D366;
-    color: white;
-}
-
-/* TESTIMONIAL */
-.testimonial {
-    background: #1e293b;
-    padding: 15px;
-    margin: 10px 0;
-    border-radius: 10px;
-    font-style: italic;
-}
-
-/* CTA */
-.cta button {
-    background: #22c55e;
-    margin-top: 10px;
-}
 * {
     margin: 0;
     padding: 0;
@@ -65,123 +5,76 @@ section {
 }
 
 body {
-    font-family: Arial, sans-serif;
-    color: #e2e8f0;
-    background: linear-gradient(to bottom, #0f172a, #020617);
-    max-width: 500px;
-    margin: auto;
-    transition: 0.3s;
+    font-family: Arial;
+    background: #0f172a;
+    color: white;
 }
 
-/* LIGHT MODE */
-.light-mode {
-    background: linear-gradient(to bottom, #ffffff, #e2e8f0);
-    color: #0f172a;
-}
-
-.light-mode .project-card {
-    background: rgba(0,0,0,0.05);
-}
-
-/* NAVBAR */
+/* NAV */
 .navbar {
     display: flex;
     justify-content: space-between;
-    padding: 15px 20px;
-    position: sticky;
-    top: 0;
-    backdrop-filter: blur(12px);
-    background: rgba(15, 23, 42, 0.7);
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+    padding: 15px;
+    background: #1e293b;
 }
 
-.nav-links a {
-    color: #e2e8f0;
-    text-decoration: none;
+.navbar a {
+    color: white;
     margin-left: 10px;
-}
-
-/* TOGGLE */
-.toggle {
-    text-align: right;
-    padding: 10px;
+    text-decoration: none;
 }
 
 /* HERO */
 .hero {
     text-align: center;
-    padding: 120px 20px;
-    background: radial-gradient(circle at top, #3b82f6, #0f172a);
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #3b82f6, #1e3a8a);
 }
 
-.hero h1, .hero p {
-    animation: fadeIn 1s ease forwards;
-    opacity: 0;
-}
-
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.hero-buttons {
+    margin-top: 15px;
 }
 
 /* BUTTON */
 button {
-    background: linear-gradient(135deg, #3b82f6, #60a5fa);
+    padding: 10px 20px;
     border: none;
-    border-radius: 999px;
-    padding: 12px 25px;
+    border-radius: 10px;
+    background: #3b82f6;
     color: white;
-    font-weight: bold;
-    letter-spacing: 0.5px;
-    transition: all 0.3s ease;
+    margin-top: 10px;
     cursor: pointer;
 }
 
-button:hover {
-    transform: translateY(-2px) scale(1.05);
-    box-shadow: 0 10px 20px rgba(59,130,246,0.4);
+.hire {
+    background: #22c55e;
 }
 
 /* SECTIONS */
 section {
-    padding: 60px 20px;
+    padding: 30px;
+    text-align: center;
 }
 
-/* PROJECTS */
-.projects {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
+/* BOX */
+.box {
+    background: #1e293b;
+    margin: 10px;
+    padding: 15px;
+    border-radius: 10px;
 }
 
-.project-card {
-    flex: 1 1 45%;
+/* PROJECT */
+.card {
+    background: #1e293b;
+    margin: 10px;
     padding: 20px;
-    border-radius: 20px;
-    background: rgba(255,255,255,0.05);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,0.1);
-    opacity: 0;
-    transform: translateY(40px);
-    transition: 0.4s ease;
+    border-radius: 10px;
 }
 
-.project-card.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.project-card:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-}
-
-/* OFFER */
-.offer ul {
-    list-style: none;
-    margin-top: 10px;
+/* CTA */
+.cta {
+    background: #22c55e;
 }
 
 /* FOOTER */
@@ -190,13 +83,15 @@ footer {
     padding: 20px;
 }
 
-/* DESKTOP */
-@media (min-width: 768px) {
-    body {
-        max-width: 900px;
-    }
-
-    .project-card {
-        flex: 1 1 30%;
-    }
-                                  }
+/* WHATSAPP FLOAT */
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25D366;
+    color: white;
+    font-size: 20px;
+    padding: 15px;
+    border-radius: 50%;
+    text-decoration: none;
+}
