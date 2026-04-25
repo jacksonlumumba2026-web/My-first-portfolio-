@@ -1,129 +1,228 @@
 <!DOCTYPE html>
-<html lang="en" style="scroll-behavior:smooth;">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jackson | Frontend Developer</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jackson Lumumba | Frontend Developer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 
 <!-- NAV -->
-<nav class="navbar">
-    <h2>Jackson</h2>
-    <div>
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-    </div>
+<nav>
+  <div class="logo">J<span>ackson</span></div>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="mailto:jacksonlumumba275@gmail.com" class="nav-cta">Hire Me</a></li>
+  </ul>
 </nav>
 
 <!-- HERO -->
-<header class="hero">
-    <h1>I build modern websites that grow your business</h1>
-    <p>Frontend Developer • Fast • Responsive • Professional</p>
-
-    <p class="trust">Trusted to create clean and high-converting websites</p>
-
-    <div class="hero-buttons">
-        <button onclick="scrollToProjects()">View My Work</button>
-
-        <a href="mailto:jacksonlumumba275@gmail.com">
-            <button class="hire">Hire Me</button>
-        </a>
+<section class="hero" id="home">
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="badge-dot"></span>
+      Available for freelance work
     </div>
-</header>
+    <h1>I build websites<br>that <span class="highlight">grow</span><br>your business.</h1>
+    <p class="hero-sub">Frontend developer crafting fast, modern, and responsive websites that convert visitors into customers. Based in Kenya 🇰🇪</p>
+    <div class="hero-btns">
+      <a href="#projects" class="btn-primary">View My Work</a>
+      <a href="https://wa.me/254741590397" class="btn-outline" target="_blank">💬 WhatsApp Me</a>
+    </div>
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-num">2+</div>
+        <div class="stat-label">Projects Built</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Client Satisfaction</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">Fast</div>
+        <div class="stat-label">Delivery Time</div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ABOUT -->
 <section id="about">
-    <h2>About Me</h2>
-    <p>I help businesses build strong online presence with modern websites.</p>
+  <div class="about-grid">
+    <div class="about-img-wrap fade-up">
+      <div class="about-img-placeholder">
+        <div class="avatar-icon">👤</div>
+        <span>Your Photo Here</span>
+        <small>Replace with your real photo</small>
+      </div>
+      <div class="accent-box">Frontend Dev 🚀</div>
+    </div>
+    <div class="about-text fade-up">
+      <div class="section-tag">About Me</div>
+      <h2>Turning ideas into<br>digital reality</h2>
+      <p>Hi, I'm Jackson Lumumba — a passionate frontend developer from Kenya. I specialize in building clean, modern websites that help businesses attract customers and grow their online presence.</p>
+      <p>I started my coding journey with a love for design and problem-solving. Today I build websites using HTML, CSS, and JavaScript — writing every line of code with care to ensure it's fast, responsive, and visually impressive.</p>
+      <p>Whether you need a business website, a landing page, or a custom UI — I deliver professional results on time and within budget.</p>
+      <div class="section-tag" style="margin-top:2rem;">Tech Stack</div>
+      <div class="skills-grid">
+        <div class="skill-chip"><span class="icon">🌐</span>HTML5</div>
+        <div class="skill-chip"><span class="icon">🎨</span>CSS3</div>
+        <div class="skill-chip"><span class="icon">⚡</span>JavaScript</div>
+        <div class="skill-chip"><span class="icon">📱</span>Responsive</div>
+        <div class="skill-chip"><span class="icon">🐙</span>GitHub</div>
+        <div class="skill-chip"><span class="icon">🔧</span>VS Code</div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- SERVICES -->
-<section class="services">
-    <h2>My Services</h2>
-
-    <div class="box">🌐 Business Website Design</div>
-    <div class="box">📱 Mobile Responsive Design</div>
-    <div class="box">🎨 Modern UI Design</div>
+<section id="services" class="services-section">
+  <div class="section-tag">What I Do</div>
+  <h2>Services</h2>
+  <p class="section-sub">Everything you need to get your business online and looking great.</p>
+  <div class="services-grid">
+    <div class="service-card fade-up">
+      <span class="service-icon">🌐</span>
+      <h3>Business Website Design</h3>
+      <p>Professional, modern websites tailored to your brand. Built to attract customers and make a strong first impression online.</p>
+    </div>
+    <div class="service-card fade-up">
+      <span class="service-icon">📱</span>
+      <h3>Mobile-Responsive Design</h3>
+      <p>Every site I build looks and works perfectly on all screen sizes — phones, tablets, and desktops. No exceptions.</p>
+    </div>
+    <div class="service-card fade-up">
+      <span class="service-icon">🎨</span>
+      <h3>Modern UI/UX Design</h3>
+      <p>Clean, intuitive interfaces that are easy to navigate. Great design builds trust and keeps visitors on your site longer.</p>
+    </div>
+    <div class="service-card fade-up">
+      <span class="service-icon">⚡</span>
+      <h3>Fast & Optimized Code</h3>
+      <p>Hand-coded sites that load fast. Speed matters — for SEO, for user experience, and for converting visitors to clients.</p>
+    </div>
+  </div>
 </section>
 
 <!-- PROJECTS -->
 <section id="projects">
-    <h2>My Projects</h2>
-
-    <!-- RESTAURANT -->
-    <div class="card">
+  <div class="section-tag">Portfolio</div>
+  <h2>My Projects</h2>
+  <p class="section-sub">Real websites I've designed and built from scratch.</p>
+  <div class="projects-grid">
+    <div class="project-card fade-up">
+      <div class="project-thumb">🍽️</div>
+      <div class="project-body">
+        <div class="project-tag">Restaurant Website</div>
         <h3>Restaurant Website</h3>
-        <p>Modern restaurant website with menu and WhatsApp ordering.</p>
-
-        <div class="buttons">
-            <a href="https://jacksonlumumba2026-web.github.io/Restaurant-/" target="_blank">
-                <button>Live Demo</button>
-            </a>
-
-            <a href="mailto:jacksonlumumba275@gmail.com">
-                <button class="hire">Get This Website</button>
-            </a>
-
-            <a href="https://wa.me/254741590397" target="_blank">
-                <button class="whatsapp">WhatsApp</button>
-            </a>
+        <p>Modern restaurant site with a full menu, gallery, and WhatsApp ordering integration — ready for real customers.</p>
+        <div class="project-links">
+          <a href="https://jacksonlumumba2026-web.github.io/Restaurant-/" target="_blank" class="link-demo">Live Demo</a>
+          <a href="https://wa.me/254741590397" target="_blank" class="link-wa">💬 Get This</a>
         </div>
+      </div>
     </div>
-
-    <!-- LOGIN -->
-    <div class="card">
+    <div class="project-card fade-up">
+      <div class="project-thumb">🔐</div>
+      <div class="project-body">
+        <div class="project-tag">UI Component</div>
         <h3>Login / Signup UI</h3>
-        <p>Interactive login system with password toggle.</p>
-
-        <div class="buttons">
-            <a href="https://jacksonlumumba2026-web.github.io/Login-sign-up-/" target="_blank">
-                <button>Live Demo</button>
-            </a>
-
-            <a href="mailto:jacksonlumumba275@gmail.com">
-                <button class="hire">Get This Website</button>
-            </a>
-
-            <a href="https://wa.me/254741590397" target="_blank">
-                <button class="whatsapp">WhatsApp</button>
-            </a>
+        <p>Interactive authentication UI with password visibility toggle, clean form validation, and smooth transitions.</p>
+        <div class="project-links">
+          <a href="https://jacksonlumumba2026-web.github.io/Login-sign-up-/" target="_blank" class="link-demo">Live Demo</a>
+          <a href="https://wa.me/254741590397" target="_blank" class="link-wa">💬 Get This</a>
         </div>
+      </div>
     </div>
-
+    <div class="project-card fade-up dashed-card">
+      <div class="project-thumb">➕</div>
+      <div class="project-body">
+        <div class="project-tag">Coming Soon</div>
+        <h3>Next Project</h3>
+        <p>More exciting projects coming soon. Got an idea? Let's build something together.</p>
+        <div class="project-links">
+          <a href="https://wa.me/254741590397" target="_blank" class="link-wa">💬 Let's Talk</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- CTA -->
-<section class="cta">
-    <h2>Need a website like this?</h2>
-    <p>I build websites that attract customers and grow businesses.</p>
-
-    <a href="https://wa.me/254741590397" target="_blank">
-        <button class="hire">Message Me Now</button>
-    </a>
+<section class="cta-section fade-up">
+  <div class="section-tag">Ready to Start?</div>
+  <h2>Need a website for your business?</h2>
+  <p>I'll design and deliver a professional website that makes your business stand out. Fast turnaround, affordable pricing.</p>
+  <div class="cta-btns">
+    <a href="https://wa.me/254741590397" target="_blank" class="btn-primary">💬 WhatsApp Me Now</a>
+    <a href="mailto:jacksonlumumba275@gmail.com" class="btn-outline">📧 Send an Email</a>
+  </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact">
-    <h2>Contact Me</h2>
-    <p>Email: jacksonlumumba275@gmail.com</p>
-    <p>Phone: 0741590397</p>
-
-    <button onclick="contactMe()">Send Email</button>
+  <div class="section-tag">Get In Touch</div>
+  <h2>Contact Me</h2>
+  <p class="section-sub">Have a project in mind? Let's talk — I usually respond within a few hours.</p>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <a href="mailto:jacksonlumumba275@gmail.com" class="contact-item">
+        <div class="contact-icon">📧</div>
+        <div>
+          <div class="contact-label">Email</div>
+          <div class="contact-val">jacksonlumumba275@gmail.com</div>
+        </div>
+      </a>
+      <a href="tel:+254741590397" class="contact-item">
+        <div class="contact-icon">📞</div>
+        <div>
+          <div class="contact-label">Phone</div>
+          <div class="contact-val">+254 741 590 397</div>
+        </div>
+      </a>
+      <a href="https://wa.me/254741590397" target="_blank" class="contact-item">
+        <div class="contact-icon">💬</div>
+        <div>
+          <div class="contact-label">WhatsApp</div>
+          <div class="contact-val">Chat with me directly</div>
+        </div>
+      </a>
+      <a href="https://github.com/jacksonlumumba2026-web" target="_blank" class="contact-item">
+        <div class="contact-icon">🐙</div>
+        <div>
+          <div class="contact-label">GitHub</div>
+          <div class="contact-val">See my code</div>
+        </div>
+      </a>
+    </div>
+    <div class="contact-form">
+      <input type="text" placeholder="Your Name" />
+      <input type="email" placeholder="Your Email" />
+      <input type="text" placeholder="Subject (e.g. I need a restaurant website)" />
+      <textarea placeholder="Tell me about your project..."></textarea>
+      <a href="mailto:jacksonlumumba275@gmail.com" class="btn-primary send-btn">Send Message →</a>
+    </div>
+  </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
-    <p>© 2026 Jackson Web Solutions</p>
+  <div>© 2026 Jackson Lumumba · All rights reserved</div>
+  <div>Built with ❤️ in Kenya 🇰🇪</div>
 </footer>
 
-<!-- FLOAT WHATSAPP -->
-<a href="https://wa.me/254741590397" class="whatsapp-float" target="_blank">
-    💬
-</a>
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/254741590397" class="wa-float" target="_blank" title="Chat on WhatsApp">💬</a>
 
 <script src="script.js"></script>
-
 </body>
     </html>
+            
