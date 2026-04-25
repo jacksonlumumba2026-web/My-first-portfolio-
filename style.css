@@ -7,7 +7,7 @@
 body {
     font-family: Arial;
     background: #0f172a;
-    color: white;
+    color: #e2e8f0;
 }
 
 /* NAV */
@@ -15,11 +15,11 @@ body {
     display: flex;
     justify-content: space-between;
     padding: 15px;
-    background: #1e293b;
+    background: #020617;
 }
 
 .navbar a {
-    color: white;
+    color: #cbd5f5;
     margin-left: 10px;
     text-decoration: none;
 }
@@ -28,31 +28,41 @@ body {
 .hero {
     text-align: center;
     padding: 80px 20px;
-    background: linear-gradient(135deg, #3b82f6, #1e3a8a);
+    background: linear-gradient(135deg, #2563eb, #1e3a8a);
 }
 
-.hero-buttons {
-    margin-top: 15px;
+.trust {
+    margin-top: 10px;
+    opacity: 0.8;
 }
 
-/* BUTTON */
+/* BUTTONS */
 button {
     padding: 10px 20px;
-    border: none;
     border-radius: 10px;
-    background: #3b82f6;
-    color: white;
-    margin-top: 10px;
+    border: none;
     cursor: pointer;
+    margin-top: 10px;
+    background: #2563eb;
+    color: white;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
 }
 
 .hire {
     background: #22c55e;
 }
 
+.whatsapp {
+    background: #25D366;
+}
+
 /* SECTIONS */
 section {
-    padding: 30px;
+    padding: 40px 20px;
     text-align: center;
 }
 
@@ -64,23 +74,32 @@ section {
     border-radius: 10px;
 }
 
-/* PROJECT */
+/* PROJECT CARD */
 .card {
     background: #1e293b;
-    margin: 10px;
+    margin: 15px;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+
+/* BUTTON GROUP */
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
 /* CTA */
 .cta {
-    background: #22c55e;
+    background: linear-gradient(135deg, #22c55e, #15803d);
 }
 
 /* FOOTER */
 footer {
     text-align: center;
     padding: 20px;
+    background: #020617;
 }
 
 /* WHATSAPP FLOAT */
@@ -89,9 +108,8 @@ footer {
     bottom: 20px;
     right: 20px;
     background: #25D366;
-    color: white;
-    font-size: 20px;
     padding: 15px;
     border-radius: 50%;
     text-decoration: none;
+    color: white;
 }
