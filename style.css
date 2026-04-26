@@ -340,5 +340,5 @@ footer { padding: 1.8rem 5%; display: flex; justify-content: space-between; alig
   .skills-grid { grid-template-columns: repeat(2, 1fr); }
   .achievement-card { flex-direction: column; }
   .faq-list { max-width: 100%; }
-              }
-                    
+     }
+       
