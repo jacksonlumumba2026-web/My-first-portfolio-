@@ -77,9 +77,7 @@ faqItems.forEach((item) => {
   const btn = item.querySelector(".faq-q");
   btn.addEventListener("click", () => {
     const isOpen = item.classList.contains("open");
-    // Close all
     faqItems.forEach((i) => i.classList.remove("open"));
-    // Toggle clicked
     if (!isOpen) item.classList.add("open");
   });
 });
@@ -121,4 +119,4 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     }
   });
 });
-                     
+     
