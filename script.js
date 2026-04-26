@@ -8,12 +8,10 @@ const fadeEls = document.querySelectorAll(".fade-up");
 const fadeObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-      }
+      if (entry.isIntersecting) entry.target.classList.add("visible");
     });
   },
-  { threshold: 0.12 }
+  { threshold: 0.1 }
 );
 
 fadeEls.forEach((el) => fadeObserver.observe(el));
@@ -44,7 +42,6 @@ window.addEventListener("scroll", () => {
       current = section.getAttribute("id");
     }
   });
-
   navLinks.forEach((link) => {
     link.style.color = "";
     if (link.getAttribute("href") === "#" + current) {
@@ -64,7 +61,6 @@ if (menuToggle && navMenu) {
     menuToggle.textContent = navMenu.classList.contains("open") ? "✕" : "☰";
   });
 
-  // Close menu when a link is clicked
   navMenu.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", () => {
       navMenu.classList.remove("open");
@@ -74,7 +70,22 @@ if (menuToggle && navMenu) {
 }
 
 
-// ── 5. CONTACT FORM — open mailto with filled data ───────────────────────────
+// ── 5. FAQ ACCORDION ─────────────────────────────────────────────────────────
+const faqItems = document.querySelectorAll(".faq-item");
+
+faqItems.forEach((item) => {
+  const btn = item.querySelector(".faq-q");
+  btn.addEventListener("click", () => {
+    const isOpen = item.classList.contains("open");
+    // Close all
+    faqItems.forEach((i) => i.classList.remove("open"));
+    // Toggle clicked
+    if (!isOpen) item.classList.add("open");
+  });
+});
+
+
+// ── 6. CONTACT FORM ───────────────────────────────────────────────────────────
 const sendBtn = document.getElementById("send-btn");
 
 if (sendBtn) {
@@ -89,7 +100,8 @@ if (sendBtn) {
       return;
     }
 
-    const body = `Hi Jackson,\n\nMy name is ${name}${email ? " (" + email + ")" : ""}.\n\n${message}\n\nLooking forward to hearing from you!`;
+    const body =
+      `Hi Jackson,\n\nMy name is ${name}${email ? " (" + email + ")" : ""}.\n\n${message}\n\nLooking forward to hearing from you!`;
 
     window.location.href =
       `mailto:jacksonlumumba275@gmail.com` +
@@ -99,7 +111,7 @@ if (sendBtn) {
 }
 
 
-// ── 6. SMOOTH SCROLL for older browsers ──────────────────────────────────────
+// ── 7. SMOOTH SCROLL ─────────────────────────────────────────────────────────
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
     const target = document.querySelector(this.getAttribute("href"));
@@ -109,3 +121,4 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     }
   });
 });
+                     
