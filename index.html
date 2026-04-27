@@ -3,411 +3,542 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Jackson Lumumba | Full-Stack Developer</title>
-  
-  <meta name="description" content="Professional Web Developer in Kenya specializing in high-performance websites, M-Pesa, and PayPal integrations.">
-  <meta property="og:title" content="Jackson Lumumba | Portfolio">
-  <meta property="og:image" content="file_000000007ec471f5ad07af3b86221ed7.png">
-
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet"/>
-  
+  <title>Jackson Lumumba | Frontend Developer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{
-        --bg:#050508;
-        --surface:#0f0f18;
-        --border:rgba(255, 255, 255, 0.08);
-        --accent:#00e5a0;
-        --accent2:#00b8ff;
-        --text:#e8e8f0;
-        --muted:#94a3b8;
-        --card:rgba(19, 19, 30, 0.6);
-        --r:20px;
-        --glass: blur(15px);
-        /* Watercolor specific colors */
-        --wash-color: rgba(0, 229, 160, 0.2);
-    }
+    :root{--bg:#0a0a0f;--surface:#13131a;--border:#1e1e2e;--accent:#00e5a0;--accent2:#00b8ff;--text:#e8e8f0;--muted:#6b6b85;--card:#0f0f18;--r:16px}
     html{scroll-behavior:smooth}
-    body{
-        font-family:'DM Sans',sans-serif;
-        background:var(--bg);
-        color:var(--text);
-        line-height:1.6;
-        overflow-x:hidden;
-        background-image: 
-            radial-gradient(at 0% 0%, rgba(0, 229, 160, 0.05) 0px, transparent 50%),
-            radial-gradient(at 100% 100%, rgba(0, 184, 255, 0.05) 0px, transparent 50%);
-    }
+    body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
 
     /* NAV */
-    #navbar{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.2rem 5%;background:rgba(5,5,8,0.8);backdrop-filter:var(--glass);border-bottom:1px solid var(--border);transition:0.3s}
-    .logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.5rem;color:var(--accent);letter-spacing:-1px; text-decoration:none}
-    #nav-menu{list-style:none;display:flex;align-items:center;gap:2rem}
-    #nav-menu a{text-decoration:none;color:var(--muted);font-size:0.9rem;font-weight:500;transition:0.2s}
+    #navbar{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1rem 5%;background:rgba(10,10,15,0.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:all 0.3s}
+    .logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.4rem;color:var(--accent)}
+    .logo span{color:var(--text)}
+    #nav-menu{list-style:none;display:flex;align-items:center;gap:1.8rem}
+    #nav-menu a{text-decoration:none;color:var(--muted);font-size:0.88rem;font-weight:500;transition:color 0.2s}
     #nav-menu a:hover{color:var(--accent)}
-    .nav-cta{background:var(--accent)!important;color:#000!important;padding:0.6rem 1.4rem!important;border-radius:10px;font-weight:700!important;text-decoration:none; transition: 0.3s;}
-    .nav-cta:hover{transform: scale(1.05); box-shadow: 0 0 20px rgba(0, 229, 160, 0.3);}
-    .menu-toggle{display:none;background:none;border:none;color:var(--text);font-size:1.5rem;cursor:pointer}
+    .nav-cta{background:var(--accent)!important;color:#000!important;padding:0.45rem 1.2rem!important;border-radius:7px;font-weight:700!important}
+    .menu-toggle{display:none;background:none;border:1px solid var(--border);color:var(--text);font-size:1.3rem;padding:0.3rem 0.7rem;border-radius:6px;cursor:pointer}
 
     /* HERO */
-    .hero{min-height:100vh;display:flex;align-items:center;padding:8rem 5% 4rem;position:relative}
-    .hero-content{max-width:850px;z-index:2}
-    .badge{display:inline-flex;align-items:center;gap:0.6rem;background:rgba(0,229,160,0.1);border:1px solid rgba(0,229,160,0.2);color:var(--accent);padding:0.5rem 1.2rem;border-radius:100px;font-size:0.85rem;font-weight:600;margin-bottom:2rem}
-    .badge-dot{width:8px;height:8px;background:var(--accent);border-radius:50%;animation:pulse 2s infinite}
-    @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(0,229,160,0.7)}70%{box-shadow:0 0 0 10px rgba(0,229,160,0)}100%{box-shadow:0 0 0 0 rgba(0,229,160,0)}}
-    h1{font-family:'Syne',sans-serif;font-size:clamp(2.8rem,7vw,5rem);font-weight:800;line-height:1.1;letter-spacing:-3px;margin-bottom:1.5rem}
-    .grad{background:linear-gradient(90deg, var(--accent), var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-    .hero-sub{font-size:1.25rem;color:var(--muted);margin-bottom:2.5rem;font-weight:300;max-width:600px}
-    #typing{color:var(--text); border-right: 2px solid var(--accent); padding-right: 5px; animation: blink 0.8s infinite;}
-    @keyframes blink { 50% { border-color: transparent; } }
+    .hero{min-height:100vh;display:flex;align-items:center;padding:9rem 5% 5rem;position:relative;overflow:hidden}
+    .glow{position:absolute;pointer-events:none;border-radius:50%}
+    .glow-1{width:600px;height:600px;background:radial-gradient(circle,rgba(0,229,160,0.09),transparent 70%);top:-5%;left:-15%}
+    .glow-2{width:400px;height:400px;background:radial-gradient(circle,rgba(0,184,255,0.07),transparent 70%);bottom:5%;right:0}
+    .hero-content{max-width:740px}
+    .badge{display:inline-flex;align-items:center;gap:0.55rem;background:rgba(0,229,160,0.07);border:1px solid rgba(0,229,160,0.22);color:var(--accent);padding:0.42rem 1.1rem;border-radius:100px;font-size:0.8rem;font-weight:600;margin-bottom:2rem}
+    .badge-dot{display:inline-block;width:7px;height:7px;background:var(--accent);border-radius:50%;animation:pulse 2s infinite}
+    @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.4;transform:scale(1.5)}}
+    h1{font-family:'Syne',sans-serif;font-size:clamp(2.6rem,6vw,4.8rem);font-weight:800;line-height:1.06;letter-spacing:-2px;margin-bottom:1.5rem}
+    h2{font-family:'Syne',sans-serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:800;letter-spacing:-1px;margin-bottom:1rem}
+    .grad{background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .hero-sub{font-size:1.1rem;color:var(--muted);max-width:530px;margin-bottom:2.5rem;font-weight:300;line-height:1.8}
+    .stats{display:flex;gap:3rem;margin-top:4rem;padding-top:2.5rem;border-top:1px solid var(--border);flex-wrap:wrap}
+    .stat-num{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;color:var(--accent)}
+    .stat-label{font-size:0.78rem;color:var(--muted);margin-top:0.15rem}
+
+    /* BUTTONS */
+    .btn-group{display:flex;gap:1rem;flex-wrap:wrap}
+    .btn-group.centered{justify-content:center}
+    .btn-primary{display:inline-block;background:var(--accent);color:#000;padding:0.85rem 2rem;border-radius:8px;text-decoration:none;font-weight:700;font-size:0.95rem;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s}
+    .btn-primary:hover{background:#00cc8f;transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,229,160,0.28)}
+    .btn-outline{display:inline-block;border:1px solid var(--border);color:var(--text);padding:0.85rem 2rem;border-radius:8px;text-decoration:none;font-weight:500;font-size:0.95rem;transition:all 0.2s}
+    .btn-outline:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
 
     /* SECTIONS */
-    .section{padding:8rem 5%}
-    .alt-bg{background:var(--surface)}
-    .tag{color:var(--accent); font-weight:700; text-transform:uppercase; letter-spacing:2px; font-size:0.75rem; margin-bottom:1rem; display:block}
-    h2{font-family:'Syne',sans-serif; font-size:clamp(2rem,4vw,3rem); margin-bottom:1.5rem; letter-spacing:-1px}
+    .section{padding:6rem 5%}
+    .alt-bg{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+    .tag{font-size:0.7rem;font-weight:700;letter-spacing:0.13em;text-transform:uppercase;color:var(--accent);margin-bottom:0.7rem}
+    .sub{color:var(--muted);font-size:1rem;max-width:500px;margin-bottom:3rem;font-weight:300}
 
-    /* CARDS & GRIDS */
-    .glass-card {
-        background: var(--card);
-        backdrop-filter: var(--glass);
-        border: 1px solid var(--border);
-        border-radius: var(--r);
-        padding: 2.5rem;
-        transition: 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-        position: relative;
-        overflow: hidden;
-    }
-    .glass-card:hover {
-        transform: translateY(-10px);
-        border-color: var(--accent);
-        background: rgba(255,255,255,0.05);
-    }
-    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+    /* ABOUT */
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+    .img-wrap{position:relative}
+    .img-box{width:100%;aspect-ratio:4/5;background:var(--surface);border-radius:var(--r);border:2px solid var(--border);overflow:hidden}
+    .img-box img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform 0.4s}
+    .img-box:hover img{transform:scale(1.04)}
+    .float-badge{position:absolute;bottom:-18px;right:-18px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#000;padding:0.9rem 1.3rem;border-radius:12px;font-weight:700;font-size:0.85rem;font-family:'Syne',sans-serif;box-shadow:0 6px 24px rgba(0,229,160,0.3)}
+    .about-text p{color:var(--muted);margin-bottom:1.1rem;font-weight:300;line-height:1.8}
+    .skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.75rem;margin-top:0.8rem}
+    .skill-chip{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:0.85rem 0.5rem;text-align:center;font-size:0.84rem;font-weight:500;transition:all 0.2s;display:flex;flex-direction:column;align-items:center;gap:0.3rem}
+    .skill-chip span{font-size:1.35rem}
+    .skill-chip:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-3px)}
 
-    /* ACHIEVEMENTS ICON */
-    .ach-icon { font-size: 2.5rem; background: rgba(0,229,160,0.1); width: 60px; height: 60px; display:flex; align-items:center; justify-content:center; border-radius: 12px; margin-bottom: 1.5rem; }
+    /* ACHIEVEMENTS */
+    .ach-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.2rem}
+    .ach-card{display:flex;gap:1.2rem;align-items:flex-start;background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:1.8rem;transition:all 0.25s}
+    .ach-card:hover{border-color:rgba(0,229,160,0.25);transform:translateY(-3px)}
+    .ach-icon{font-size:1.8rem;flex-shrink:0;width:52px;height:52px;background:rgba(0,229,160,0.08);border-radius:12px;display:flex;align-items:center;justify-content:center}
+    .ach-year{font-size:0.7rem;font-weight:700;color:var(--accent);letter-spacing:0.08em;margin-bottom:0.4rem}
+    .ach-card h3{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;margin-bottom:0.5rem}
+    .ach-card p{color:var(--muted);font-size:0.85rem;font-weight:300;line-height:1.65;margin-bottom:0.8rem}
+    .ach-badge{display:inline-block;background:rgba(0,229,160,0.08);border:1px solid rgba(0,229,160,0.2);color:var(--accent);font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:0.25rem 0.7rem;border-radius:100px}
 
-    /* PROJECT THUMBS - WATERCOLOR UPDATE */
-    .proj-thumb { 
-        height: 200px; 
-        background: #1a1a24; 
-        border-radius: 15px; 
-        margin-bottom: 1.5rem; 
-        display: flex; 
-        align-items: center; 
-        justify-content: center; 
-        font-size: 3.5rem; 
-        border: 1px solid var(--border); 
-        transition: 0.6s cubic-bezier(0.19, 1, 0.22, 1);
-        position: relative;
-        clip-path: circle(100% at 50% 50%); /* Base state */
-    }
+    /* SERVICES */
+    .srv-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.2rem}
+    .srv-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:2rem 1.8rem;position:relative;overflow:hidden;transition:all 0.25s}
+    .srv-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));opacity:0;transition:opacity 0.25s}
+    .srv-card:hover{border-color:rgba(0,229,160,0.22);transform:translateY(-4px)}
+    .srv-card:hover::before{opacity:1}
+    .srv-icon{font-size:2.1rem;margin-bottom:1.1rem;display:block}
+    .srv-card h3{font-family:'Syne',sans-serif;font-size:1.02rem;font-weight:700;margin-bottom:0.65rem}
+    .srv-card p{color:var(--muted);font-size:0.88rem;font-weight:300;line-height:1.7}
 
-    .glass-card:hover .proj-thumb { 
-        transform: scale(1.02); 
-        border-color: var(--accent);
-        animation: ink-bleed 1.2s ease-out forwards;
-        background: linear-gradient(135deg, #1a1a24 0%, var(--wash-color) 100%);
-    }
+    /* PROJECTS */
+    .proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
+    .proj-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;transition:all 0.25s}
+    .proj-card:hover{border-color:rgba(0,229,160,0.3);transform:translateY(-5px);box-shadow:0 16px 48px rgba(0,0,0,0.4)}
+    .proj-card.dashed{border-style:dashed;opacity:0.6}
+    .proj-thumb{height:165px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.5rem;border-bottom:1px solid var(--border)}
+    .thumb-icon{font-size:3rem;line-height:1}
+    .thumb-lbl{font-family:'Syne',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;opacity:0.7}
+    .t-agency{background:linear-gradient(135deg,#0d1a2e,#1a2d4a);color:#60a5fa}
+    .t-ecom{background:linear-gradient(135deg,#1a0d2e,#2d1a4a);color:#c084fc}
+    .t-resto{background:linear-gradient(135deg,#1a0d0d,#3a1a1a);color:#f87171}
+    .t-auth{background:linear-gradient(135deg,#0d1a14,#1a3a28);color:#34d399}
+    .t-web{background:linear-gradient(135deg,#0d0d1a,#1a1a3a);color:#818cf8}
+    .t-barber{background:linear-gradient(135deg,#1a100d,#3a2010);color:#fb923c}
+    .t-soon{background:linear-gradient(135deg,#1a1a0d,#2e2e14);color:#fbbf24}
+    .proj-body{padding:1.5rem}
+    .proj-tag{font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:0.45rem}
+    .proj-body h3{font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;margin-bottom:0.55rem}
+    .proj-body p{color:var(--muted);font-size:0.87rem;margin-bottom:1.2rem;font-weight:300;line-height:1.65}
+    .proj-links{display:flex;gap:0.7rem;flex-wrap:wrap}
+    .proj-links a{text-decoration:none;font-size:0.82rem;font-weight:700;padding:0.42rem 1rem;border-radius:6px;transition:all 0.2s}
+    .l-demo{background:var(--accent);color:#000}
+    .l-demo:hover{background:#00cc8f}
+    .l-wa{border:1px solid var(--border);color:var(--text)}
+    .l-wa:hover{border-color:#25D366;color:#25D366}
 
-    @keyframes ink-bleed {
-        0% { clip-path: circle(100% at 50% 50%); }
-        20% { clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%); } /* Rougher shape */
-        50% { clip-path: polygon(50% 0%, 90% 20%, 100% 60%, 75% 100%, 25% 100%, 0% 60%, 10% 20%); }
-        100% { clip-path: circle(100% at 50% 50%); }
-    }
+    /* PRICING */
+    .price-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;align-items:start}
+    .price-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:2rem;transition:all 0.25s;position:relative}
+    .price-card:hover{transform:translateY(-5px);border-color:rgba(0,229,160,0.2)}
+    .price-card.pop{border-color:var(--accent);background:linear-gradient(160deg,#0f1a15,var(--card));box-shadow:0 0 40px rgba(0,229,160,0.08)}
+    .pop-lbl{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--accent);color:#000;font-size:0.72rem;font-weight:700;padding:0.3rem 1rem;border-radius:100px;white-space:nowrap}
+    .plan-name{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.8rem}
+    .plan-price{font-family:'Syne',sans-serif;font-size:2.2rem;font-weight:800;color:var(--accent);margin-bottom:0.8rem}
+    .plan-price span{font-size:0.9rem;color:var(--muted);font-weight:400}
+    .plan-desc{color:var(--muted);font-size:0.88rem;font-weight:300;margin-bottom:1.5rem;line-height:1.6}
+    .plan-features{list-style:none;margin-bottom:2rem;display:flex;flex-direction:column;gap:0.6rem}
+    .plan-features li{font-size:0.88rem;color:var(--text)}
+    .plan-btn{display:block;text-align:center;width:100%}
+    .price-note{text-align:center;color:var(--muted);font-size:0.9rem;margin-top:2rem;font-weight:300}
+    .price-note a{color:var(--accent);text-decoration:none;font-weight:600}
 
-    /* NEW: Watercolor wash overlay for cards */
-    .glass-card::after {
-        content: '';
-        position: absolute;
-        top: -50%;
-        left: -50%;
-        width: 200%;
-        height: 200%;
-        background: radial-gradient(circle, var(--wash-color) 0%, transparent 70%);
-        opacity: 0;
-        transition: opacity 0.6s ease;
-        pointer-events: none;
-        z-index: 0;
-    }
-
-    .glass-card:hover::after {
-        opacity: 0.4;
-        animation: wash-drift 8s infinite alternate;
-    }
-
-    @keyframes wash-drift {
-        from { transform: translate(-10%, -10%); }
-        to { transform: translate(10%, 10%); }
-    }
-
-    .glass-card > * { position: relative; z-index: 1; } /* Keeps content above the wash */
-
-    /* PAYMENT BADGES */
-    .payment-gateways { display: flex; align-items: center; gap: 12px; margin-top: 1.5rem; opacity: 0.8; }
-    .gateway-logo { height: 18px; filter: grayscale(1) brightness(1.5); }
+    /* TESTIMONIALS */
+    .testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1.5rem}
+    .testi-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:2rem;transition:all 0.25s;position:relative}
+    .testi-card::before{content:'"';position:absolute;top:1rem;right:1.5rem;font-size:5rem;font-family:'Syne',sans-serif;color:rgba(0,229,160,0.08);line-height:1;pointer-events:none}
+    .testi-card:hover{border-color:rgba(0,229,160,0.22);transform:translateY(-4px)}
+    .stars{font-size:1rem;margin-bottom:1rem;letter-spacing:2px}
+    .testi-card>p{color:var(--muted);font-size:0.92rem;font-weight:300;line-height:1.75;margin-bottom:1.5rem;font-style:italic}
+    .testi-author{display:flex;align-items:center;gap:0.9rem}
+    .testi-av{width:42px;height:42px;background:rgba(0,229,160,0.08);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
+    .testi-name{font-weight:600;font-size:0.9rem}
+    .testi-role{color:var(--muted);font-size:0.78rem;margin-top:0.1rem}
 
     /* FAQ */
-    .faq-item { border-bottom: 1px solid var(--border); padding: 1.5rem 0; cursor: pointer; }
-    .faq-q { display: flex; justify-content: space-between; font-weight: 600; font-family: 'Syne', sans-serif; }
-    .faq-a { max-height: 0; overflow: hidden; transition: 0.3s ease; color: var(--muted); font-size: 0.95rem; }
-    .faq-item.open .faq-a { max-height: 300px; padding-top: 1rem; }
+    .faq-list{max-width:760px;display:flex;flex-direction:column;gap:0.9rem}
+    .faq-item{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:border-color 0.2s}
+    .faq-item.open{border-color:rgba(0,229,160,0.3)}
+    .faq-q{width:100%;background:none;border:none;color:var(--text);font-family:'DM Sans',sans-serif;font-size:0.95rem;font-weight:500;padding:1.2rem 1.5rem;text-align:left;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem}
+    .faq-q:hover{color:var(--accent)}
+    .faq-arrow{font-size:0.75rem;color:var(--muted);transition:transform 0.3s;flex-shrink:0}
+    .faq-item.open .faq-arrow{transform:rotate(180deg);color:var(--accent)}
+    .faq-a{display:none;padding:0 1.5rem 1.2rem;color:var(--muted);font-size:0.9rem;font-weight:300;line-height:1.75}
+    .faq-item.open .faq-a{display:block}
 
-    /* CONTACT FORM */
-    .contact-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 4rem; }
-    input, textarea { width: 100%; background: var(--surface); border: 1px solid var(--border); padding: 1rem; border-radius: 10px; color: #fff; margin-bottom: 1rem; outline: none; }
-    input:focus, textarea:focus { border-color: var(--accent); }
+    /* CTA */
+    .cta-section{text-align:center;padding:5rem 5%}
+    .cta-section h2{margin-bottom:1rem}
+    .cta-section>p{color:var(--muted);margin-bottom:2rem;font-weight:300;max-width:520px;margin-left:auto;margin-right:auto}
 
-    /* MOBILE */
+    /* CONTACT */
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+    .c-item{display:flex;align-items:center;gap:1rem;padding:1rem 1.2rem;background:var(--surface);border:1px solid var(--border);border-radius:12px;margin-bottom:0.9rem;text-decoration:none;color:var(--text);transition:all 0.2s}
+    .c-item:hover{border-color:var(--accent);transform:translateX(4px)}
+    .c-icon{width:42px;height:42px;background:rgba(0,229,160,0.08);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
+    .c-label{font-size:0.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:0.2rem}
+    .c-val{font-weight:500;font-size:0.9rem}
+    .contact-form{display:flex;flex-direction:column;gap:0.9rem}
+    .contact-form input,.contact-form textarea{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:0.9rem 1.2rem;color:var(--text);font-family:'DM Sans',sans-serif;font-size:0.9rem;outline:none;width:100%;transition:border-color 0.2s}
+    .contact-form input:focus,.contact-form textarea:focus{border-color:var(--accent)}
+    .contact-form textarea{height:130px;resize:vertical}
+    .contact-form input::placeholder,.contact-form textarea::placeholder{color:var(--muted)}
+    .send-btn{width:100%;font-size:1rem}
+
+    /* FOOTER */
+    footer{padding:1.8rem 5%;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border);color:var(--muted);font-size:0.82rem;flex-wrap:wrap;gap:1rem}
+
+    /* FLOATING WA */
+    .wa-float{position:fixed;bottom:1.8rem;right:1.8rem;width:54px;height:54px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;box-shadow:0 6px 24px rgba(37,211,102,0.45);z-index:200;text-decoration:none;transition:transform 0.2s}
+    .wa-float:hover{transform:scale(1.12)}
+
+    /* ANIMATIONS */
+    .fade-up{opacity:0;transform:translateY(28px);transition:opacity 0.65s ease,transform 0.65s ease}
+    .fade-up.visible{opacity:1;transform:translateY(0)}
+
+    /* RESPONSIVE */
     @media(max-width:768px){
-        .contact-grid { grid-template-columns: 1fr; }
-        #nav-menu{display:none; position:fixed; top:70px; left:0; right:0; background:var(--bg); flex-direction:column; padding:2rem; gap:1.5rem; z-index: 1000;}
-        #nav-menu.open{display:flex}
-        .menu-toggle{display:block}
+      .menu-toggle{display:block}
+      #nav-menu{display:none;position:fixed;top:64px;left:0;right:0;background:var(--surface);border-bottom:1px solid var(--border);flex-direction:column;padding:1.5rem 5%;gap:1.2rem;z-index:99}
+      #nav-menu.open{display:flex}
+      .about-grid,.contact-grid{grid-template-columns:1fr;gap:2.5rem}
+      .stats{gap:1.5rem}
+      h1{letter-spacing:-1px}
+      .section{padding:4rem 5%}
+      .float-badge{bottom:-14px;right:-10px}
+      .skills-grid{grid-template-columns:repeat(2,1fr)}
+      .ach-card{flex-direction:column}
+      .faq-list{max-width:100%}
     }
-
-    .fade-up { opacity: 0; transform: translateY(30px); transition: 0.8s ease-out; }
-    .fade-up.visible { opacity: 1; transform: translateY(0); }
   </style>
 </head>
 <body>
 
+  <!-- NAV -->
   <nav id="navbar">
-    <a href="#" class="logo">LUMUMBA<span>.</span></a>
+    <div class="logo">J<span>ackson</span></div>
     <button class="menu-toggle" id="menu-toggle">☰</button>
     <ul id="nav-menu">
       <li><a href="#about">About</a></li>
-      <li><a href="#achievements">Achievements</a></li>
       <li><a href="#services">Services</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#pricing">Pricing</a></li>
-      <li><a href="#contact" class="nav-cta">Let's Talk</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="mailto:jacksonlumumba275@gmail.com" class="nav-cta">Hire Me</a></li>
     </ul>
   </nav>
 
+  <!-- HERO -->
   <section class="hero" id="home">
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
     <div class="hero-content">
-        <div class="badge"><span class="badge-dot"></span> Available for Global Projects</div>
-        <h1>High-Performance <br><span class="grad">Web Solutions</span></h1>
-        <p class="hero-sub">I'm Jackson, a developer specialized in <span id="typing"></span></p>
-        <div style="display:flex; gap:1.5rem; flex-wrap:wrap">
-            <a href="#projects" class="nav-cta" style="padding:1rem 2.5rem!important">View Portfolio</a>
-            <a href="https://wa.me/254741590397" class="glass-card" style="padding:1rem 2rem; border-radius:10px; text-decoration:none">WhatsApp Me</a>
-        </div>
+      <div class="badge"><span class="badge-dot"></span> Available for freelance work</div>
+      <h1>I build websites<br>that <span class="grad">grow</span><br>your business.</h1>
+      <p class="hero-sub">Frontend developer crafting fast, modern, and responsive websites that convert visitors into customers. Based in Kenya 🇰🇪</p>
+      <div class="btn-group">
+        <a href="#projects" class="btn-primary">View My Work</a>
+        <a href="https://wa.me/254741590397" class="btn-outline" target="_blank">💬 WhatsApp Me</a>
+      </div>
+      <div class="stats">
+        <div class="stat"><div class="stat-num">6+</div><div class="stat-label">Projects Built</div></div>
+        <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Client Satisfaction</div></div>
+        <div class="stat"><div class="stat-num">Fast</div><div class="stat-label">Delivery Time</div></div>
+      </div>
     </div>
   </section>
 
+  <!-- ABOUT -->
   <section id="about" class="section">
-    <div class="contact-grid">
-        <div class="fade-up">
-            <div style="width:100%; aspect-ratio:1/1; background:var(--surface); border-radius:20px; overflow:hidden; border:1px solid var(--border)">
-                <img src="file_000000007ec471f5ad07af3b86221ed7.png" style="width:100%; height:100%; object-fit:cover" alt="Jackson Lumumba">
-            </div>
+    <div class="about-grid">
+      <div class="img-wrap fade-up">
+        <div class="img-box">
+          <img src="file_000000007ec471f5ad07af3b86221ed7.png" alt="Jackson Lumumba"
+            onerror="this.parentElement.innerHTML='<div style=\'display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:0.5rem;color:#6b6b85\'><span style=\'font-size:4rem\'>👤</span><span>Your Photo Here</span></div>'"/>
         </div>
-        <div class="fade-up">
-            <span class="tag">The Developer</span>
-            <h2>Turning Vision Into <br>Digital Reality</h2>
-            <p style="color:var(--muted); margin-bottom:1.5rem">Based in Kenya, I combine technical expertise with creative design to build websites that don't just look good—they perform. My focus is on scalability, speed, and seamless payment integration.</p>
-            <div class="grid-3" style="gap:1rem">
-                <div class="glass-card" style="padding:1.5rem; text-align:center">
-                    <div style="font-size:1.5rem">🚀</div>
-                    <div style="font-weight:700">Fast</div>
-                </div>
-                <div class="glass-card" style="padding:1.5rem; text-align:center">
-                    <div style="font-size:1.5rem">📱</div>
-                    <div style="font-weight:700">Responsive</div>
-                </div>
-                <div class="glass-card" style="padding:1.5rem; text-align:center">
-                    <div style="font-size:1.5rem">🛡️</div>
-                    <div style="font-weight:700">Secure</div>
-                </div>
-            </div>
+        <div class="float-badge">Frontend Dev 🚀</div>
+      </div>
+      <div class="about-text fade-up">
+        <div class="tag">About Me</div>
+        <h2>Turning ideas into<br>digital reality</h2>
+        <p>Hi, I'm Jackson Lumumba — a passionate frontend developer from Kenya. I specialize in building clean, modern websites that help businesses attract customers and grow their online presence.</p>
+        <p>I started my coding journey with a love for design and problem-solving. Today I build websites using HTML, CSS, and JavaScript — writing every line with care to ensure it's fast, responsive, and visually impressive.</p>
+        <p>Whether you need a business website, a landing page, or a custom UI — I deliver professional results on time and within budget.</p>
+        <div class="tag" style="margin-top:1.8rem">Tech Stack</div>
+        <div class="skills-grid">
+          <div class="skill-chip"><span>🌐</span>HTML5</div>
+          <div class="skill-chip"><span>🎨</span>CSS3</div>
+          <div class="skill-chip"><span>⚡</span>JavaScript</div>
+          <div class="skill-chip"><span>📱</span>Responsive</div>
+          <div class="skill-chip"><span>🐙</span>GitHub</div>
+          <div class="skill-chip"><span>🔧</span>VS Code</div>
         </div>
+      </div>
     </div>
   </section>
 
+  <!-- ACHIEVEMENTS -->
   <section id="achievements" class="section alt-bg">
-    <span class="tag">History</span>
-    <h2>Milestones</h2>
-    <div class="grid-3">
-        <div class="glass-card fade-up">
-            <div class="ach-icon">🎓</div>
-            <h3>Certified Developer</h3>
-            <p style="color:var(--muted)">Comprehensive training in Frontend & Backend architectures.</p>
-        </div>
-        <div class="glass-card fade-up">
-            <div class="ach-icon">🌍</div>
-            <h3>6+ Live Systems</h3>
-            <p style="color:var(--muted)">Successfully launched platforms from E-commerce to AI tools.</p>
-        </div>
-        <div class="glass-card fade-up">
-            <div class="ach-icon">⚡</div>
-            <h3>M-Pesa Expert</h3>
-            <p style="color:var(--muted)">Expert in automating Daraja API and PayPal Checkouts.</p>
-        </div>
+    <div class="tag">My Journey</div>
+    <h2>Achievements &amp; Certificates</h2>
+    <p class="sub">Milestones I've reached on my path to becoming a professional developer.</p>
+    <div class="ach-grid">
+      <div class="ach-card fade-up">
+        <div class="ach-icon">🎓</div>
+        <div><div class="ach-year">2024</div><h3>Frontend Web Development</h3><p>Completed a comprehensive frontend development course covering HTML, CSS, JavaScript and responsive design principles.</p><span class="ach-badge">Certificate</span></div>
+      </div>
+      <div class="ach-card fade-up">
+        <div class="ach-icon">🌐</div>
+        <div><div class="ach-year">2024</div><h3>First Live Website</h3><p>Successfully deployed my first professional restaurant website on GitHub Pages — a huge milestone in my journey.</p><span class="ach-badge">Milestone</span></div>
+      </div>
+      <div class="ach-card fade-up">
+        <div class="ach-icon">💡</div>
+        <div><div class="ach-year">2025</div><h3>Freelance Developer</h3><p>Started taking on freelance clients, building custom websites for businesses and delivering professional results.</p><span class="ach-badge">Career</span></div>
+      </div>
+      <div class="ach-card fade-up">
+        <div class="ach-icon">🏆</div>
+        <div><div class="ach-year">2026</div><h3>6+ Projects Live</h3><p>Built and deployed 6+ real projects — web agency, e-commerce, restaurant, barber shop, auth UI and more.</p><span class="ach-badge">Ongoing</span></div>
+      </div>
     </div>
   </section>
 
+  <!-- SERVICES -->
   <section id="services" class="section">
-    <span class="tag">Solutions</span>
-    <h2>What I Offer</h2>
-    <div class="grid-3">
-        <div class="glass-card fade-up">
-            <div style="font-size:2.5rem; margin-bottom:1rem">💳</div>
-            <h3>Payment Automation</h3>
-            <p style="color:var(--muted)">Integration of M-Pesa (STK Push) and PayPal for global and local sales.</p>
-        </div>
-        <div class="glass-card fade-up">
-            <div style="font-size:2.5rem; margin-bottom:1rem">🤖</div>
-            <h3>AI Tooling</h3>
-            <p style="color:var(--muted)">Building custom AI logic for resume builders, career advisors, and more.</p>
-        </div>
-        <div class="glass-card fade-up">
-            <div style="font-size:2.5rem; margin-bottom:1rem">📈</div>
-            <h3>SEO & Growth</h3>
-            <p style="color:var(--muted)">Optimizing your site to rank #1 on Google and convert visitors into cash.</p>
-        </div>
+    <div class="tag">What I Do</div>
+    <h2>Services</h2>
+    <p class="sub">Everything you need to get your business online and looking great.</p>
+    <div class="srv-grid">
+      <div class="srv-card fade-up"><span class="srv-icon">🌐</span><h3>Business Website Design</h3><p>Professional, modern websites tailored to your brand. Built to attract customers and make a strong first impression.</p></div>
+      <div class="srv-card fade-up"><span class="srv-icon">📱</span><h3>Mobile-Responsive Design</h3><p>Every site I build looks and works perfectly on all screen sizes — phones, tablets, and desktops. No exceptions.</p></div>
+      <div class="srv-card fade-up"><span class="srv-icon">🛒</span><h3>E-Commerce Stores</h3><p>Beautiful online shops with product listings, cart functionality, and smooth experience that drives real sales.</p></div>
+      <div class="srv-card fade-up"><span class="srv-icon">✂️</span><h3>Local Business Sites</h3><p>Barbershops, restaurants, salons, and more — I build sites that bring in local customers through WhatsApp booking.</p></div>
     </div>
   </section>
 
+  <!-- PROJECTS -->
   <section id="projects" class="section alt-bg">
-    <span class="tag">Portfolio</span>
-    <h2>Latest Work</h2>
-    <div class="grid-3">
-        <div class="glass-card fade-up">
-            <div class="proj-thumb">🏢</div>
-            <h3>BrightWeb Agency</h3>
-            <p style="color:var(--muted); margin-bottom:1.5rem">Full agency website with high-end animations.</p>
-            <a href="https://jacksonlumumba2026-web.github.io/Bright-web-agency/" class="nav-cta">Live Demo</a>
+    <div class="tag">Portfolio</div>
+    <h2>My Projects</h2>
+    <p class="sub">Real websites I've designed and built from scratch.</p>
+    <div class="proj-grid">
+
+      <!-- 1. BrightWeb Agency -->
+      <div class="proj-card fade-up">
+        <div class="proj-thumb t-agency"><span class="thumb-icon">🏢</span><span class="thumb-lbl">BrightWeb Agency</span></div>
+        <div class="proj-body">
+          <div class="proj-tag">Web Agency Site</div>
+          <h3>BrightWeb Agency</h3>
+          <p>A modern web agency website showcasing services, UI/UX design, SEO optimization and a strong call to action.</p>
+          <div class="proj-links">
+            <a href="https://jacksonlumumba2026-web.github.io/Bright-web-agency/" target="_blank" class="l-demo">Live Demo</a>
+            <a href="https://wa.me/254741590397" target="_blank" class="l-wa">💬 Get This</a>
+          </div>
         </div>
-        <div class="glass-card fade-up">
-            <div class="proj-thumb">🛒</div>
-            <h3>Modern E-Commerce</h3>
-            <p style="color:var(--muted); margin-bottom:1.5rem">Full shop with KSh pricing and checkout.</p>
-            <a href="https://jacksonlumumba2026-web.github.io/E-commerce-/" class="nav-cta">Live Demo</a>
+      </div>
+
+      <!-- 2. E-commerce -->
+      <div class="proj-card fade-up">
+        <div class="proj-thumb t-ecom"><span class="thumb-icon">🛒</span><span class="thumb-lbl">Modern Store</span></div>
+        <div class="proj-body">
+          <div class="proj-tag">E-Commerce Store</div>
+          <h3>Modern E-Commerce Store</h3>
+          <p>A fully functional online shop UI with product cards, KSh pricing, and Add to Cart — sneakers, watches, bags &amp; more.</p>
+          <div class="proj-links">
+            <a href="https://jacksonlumumba2026-web.github.io/E-commerce-/" target="_blank" class="l-demo">Live Demo</a>
+            <a href="https://wa.me/254741590397" target="_blank" class="l-wa">💬 Get This</a>
+          </div>
         </div>
-        <div class="glass-card fade-up">
-            <div class="proj-thumb">✂️</div>
-            <h3>Barber Shop</h3>
-            <p style="color:var(--muted); margin-bottom:1.5rem">Local booking system for service businesses.</p>
-            <a href="https://jacksonlumumba2026-web.github.io/Barber-shop/" class="nav-cta">Live Demo</a>
+      </div>
+
+      <!-- 3. JackWeb / WebBoost -->
+      <div class="proj-card fade-up">
+        <div class="proj-thumb t-web"><span class="thumb-icon">🚀</span><span class="thumb-lbl">WebBoost</span></div>
+        <div class="proj-body">
+          <div class="proj-tag">Business Landing Page</div>
+          <h3>WebBoost — Business Site</h3>
+          <p>A fast, conversion-focused landing page for a web business. Clean headline, strong CTA, and mobile-first design.</p>
+          <div class="proj-links">
+            <a href="https://jacksonlumumba2026-web.github.io/Jackweb/" target="_blank" class="l-demo">Live Demo</a>
+            <a href="https://wa.me/254741590397" target="_blank" class="l-wa">💬 Get This</a>
+          </div>
         </div>
+      </div>
+
+      <!-- 4. Barber Shop -->
+      <div class="proj-card fade-up">
+        <div class="proj-thumb t-barber"><span class="thumb-icon">✂️</span><span class="thumb-lbl">Fade Kings</span></div>
+        <div class="proj-body">
+          <div class="proj-tag">Barber Shop Website</div>
+          <h3>Fade Kings Barber Shop</h3>
+          <p>A stylish barber shop website with a gallery, sharp branding, and WhatsApp booking button — perfect for any salon.</p>
+          <div class="proj-links">
+            <a href="https://jacksonlumumba2026-web.github.io/Barber-shop/" target="_blank" class="l-demo">Live Demo</a>
+            <a href="https://wa.me/254741590397" target="_blank" class="l-wa">💬 Get This</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. Restaurant -->
+      <div class="proj-card fade-up">
+        <div class="proj-thumb t-resto"><span class="thumb-icon">🍽️</span><span class="thumb-lbl">Restaurant</span></div>
+        <div class="proj-body">
+          <div class="proj-tag">Restaurant Website</div>
+          <h3>Restaurant Website</h3>
+          <p>Modern restaurant site with a full menu, gallery, and WhatsApp ordering integration — ready for real customers.</p>
+          <div class="proj-links">
+            <a href="https://jacksonlumumba2026-web.github.io/Restaurant-/" target="_blank" class="l-demo">Live Demo</a>
+            <a href="https://wa.me/254741590397" target="_blank" class="l-wa">💬 Get This</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. Login UI -->
+      <div class="proj-card fade-up">
+        <div class="proj-thumb t-auth"><span class="thumb-icon">🔐</span><span class="thumb-lbl">Auth UI</span></div>
+        <div class="proj-body">
+          <div class="proj-tag">UI Component</div>
+          <h3>Login / Signup UI</h3>
+          <p>Interactive authentication UI with password visibility toggle, clean form validation, and smooth transitions.</p>
+          <div class="proj-links">
+            <a href="https://jacksonlumumba2026-web.github.io/Login-sign-up-/" target="_blank" class="l-demo">Live Demo</a>
+            <a href="https://wa.me/254741590397" target="_blank" class="l-wa">💬 Get This</a>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
+  <!-- PRICING -->
   <section id="pricing" class="section">
-    <span class="tag">Investment</span>
-    <h2>Choose Your Plan</h2>
-    <div class="grid-3">
-        <div class="glass-card fade-up">
-            <span class="tag">Professional</span>
-            <div style="font-size:2.5rem; font-weight:800; color:var(--accent); margin:1rem 0">KSh 8,500</div>
-            <ul style="list-style:none; color:var(--muted); margin-bottom:2rem">
-                <li>✅ 5 Custom Pages</li>
-                <li>✅ M-Pesa Integration</li>
-                <li>✅ SEO Setup</li>
-                <li>✅ 5 Days Delivery</li>
-            </ul>
-            <a href="https://wa.me/254741590397" class="nav-cta" style="display:block; text-align:center">Start Project</a>
-            <div class="payment-gateways">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/M-PESA_LOGO-01.svg" class="gateway-logo">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" class="gateway-logo">
-            </div>
-        </div>
-        <div class="glass-card fade-up" style="border-color:var(--accent2)">
-            <span class="tag">Enterprise</span>
-            <div style="font-size:2.5rem; font-weight:800; color:var(--accent2); margin:1rem 0">KSh 15,000</div>
-            <ul style="list-style:none; color:var(--muted); margin-bottom:2rem">
-                <li>✅ Unlimited Pages</li>
-                <li>✅ AI Engine Features</li>
-                <li>✅ Advanced Database</li>
-                <li>✅ Priority Support</li>
-            </ul>
-            <a href="https://wa.me/254741590397" class="nav-cta" style="display:block; text-align:center; background:var(--accent2)!important">Go Premium</a>
-        </div>
+    <div class="tag">Transparent Pricing</div>
+    <h2>Simple, Affordable Plans</h2>
+    <p class="sub">No hidden fees. Pick the package that fits your needs and budget.</p>
+    <div class="price-grid">
+      <div class="price-card fade-up">
+        <div class="plan-name">Starter</div>
+        <div class="plan-price">KSh 3,000<span>/project</span></div>
+        <p class="plan-desc">Perfect for individuals who need a simple online presence.</p>
+        <ul class="plan-features">
+          <li>✅ 1-page website</li>
+          <li>✅ Mobile responsive</li>
+          <li>✅ Contact section</li>
+          <li>✅ WhatsApp button</li>
+          <li>✅ Delivered in 3 days</li>
+          <li>❌ No custom animations</li>
+          <li>❌ No revisions included</li>
+        </ul>
+        <a href="https://wa.me/254741590397?text=Hi Jackson, I'm interested in the Starter package" target="_blank" class="btn-outline plan-btn">Get Started</a>
+      </div>
+      <div class="price-card pop fade-up">
+        <div class="pop-lbl">⭐ Most Popular</div>
+        <div class="plan-name">Professional</div>
+        <div class="plan-price">KSh 8,000<span>/project</span></div>
+        <p class="plan-desc">Ideal for small businesses that want to impress their customers.</p>
+        <ul class="plan-features">
+          <li>✅ Up to 5 pages</li>
+          <li>✅ Mobile responsive</li>
+          <li>✅ Custom animations</li>
+          <li>✅ Contact form</li>
+          <li>✅ WhatsApp integration</li>
+          <li>✅ 2 revisions included</li>
+          <li>✅ Delivered in 5 days</li>
+        </ul>
+        <a href="https://wa.me/254741590397?text=Hi Jackson, I'm interested in the Professional package" target="_blank" class="btn-primary plan-btn">Get Started</a>
+      </div>
+      <div class="price-card fade-up">
+        <div class="plan-name">Premium</div>
+        <div class="plan-price">KSh 15,000<span>/project</span></div>
+        <p class="plan-desc">For businesses that want a fully custom, high-end website.</p>
+        <ul class="plan-features">
+          <li>✅ Unlimited pages</li>
+          <li>✅ Mobile responsive</li>
+          <li>✅ Advanced animations</li>
+          <li>✅ Custom UI design</li>
+          <li>✅ WhatsApp &amp; email integration</li>
+          <li>✅ Unlimited revisions</li>
+          <li>✅ Delivered in 7–10 days</li>
+        </ul>
+        <a href="https://wa.me/254741590397?text=Hi Jackson, I'm interested in the Premium package" target="_blank" class="btn-outline plan-btn">Get Started</a>
+      </div>
     </div>
+    <p class="price-note">💬 Not sure which plan? <a href="https://wa.me/254741590397" target="_blank">WhatsApp me</a> and I'll help you choose!</p>
   </section>
 
+  <!-- TESTIMONIALS -->
   <section id="testimonials" class="section alt-bg">
-    <span class="tag">Success Stories</span>
-    <h2>Client Feedback</h2>
-    <div class="grid-3">
-        <div class="glass-card fade-up">
-            <p style="font-style:italic; color:var(--muted)">"Jackson automated our M-Pesa payments and it has saved us hours of manual work every day."</p>
-            <div style="margin-top:1.5rem; font-weight:700">— David M., Retail Manager</div>
-        </div>
-        <div class="glass-card fade-up">
-            <p style="font-style:italic; color:var(--muted)">"The E-commerce site he built is stunning. Our customers find it very easy to use on mobile."</p>
-            <div style="margin-top:1.5rem; font-weight:700">— Grace W., Fashion Boutique</div>
-        </div>
+    <div class="tag">Client Reviews</div>
+    <h2>What Clients Say</h2>
+    <p class="sub">Real feedback from people I've worked with.</p>
+    <div class="testi-grid">
+      <div class="testi-card fade-up">
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <p>"Jackson built our restaurant website in just 4 days. It looks amazing and customers keep complimenting it. Sales have improved since we went online!"</p>
+        <div class="testi-author"><div class="testi-av">👨‍💼</div><div><div class="testi-name">David M.</div><div class="testi-role">Restaurant Owner, Nairobi</div></div></div>
+      </div>
+      <div class="testi-card fade-up">
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <p>"Very professional and fast. He understood exactly what I needed and delivered beyond my expectations. I will definitely work with him again!"</p>
+        <div class="testi-author"><div class="testi-av">👩‍💼</div><div><div class="testi-name">Grace W.</div><div class="testi-role">Boutique Owner, Mombasa</div></div></div>
+      </div>
+      <div class="testi-card fade-up">
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <p>"Jackson built our barber shop site and bookings increased immediately. It looks sharp and professional. Best investment for our business!"</p>
+        <div class="testi-author"><div class="testi-av">💈</div><div><div class="testi-name">Kevin O.</div><div class="testi-role">Barber Shop Owner, Nairobi</div></div></div>
+      </div>
     </div>
   </section>
 
+  <!-- FAQ -->
   <section id="faq" class="section">
-    <span class="tag">FAQ</span>
-    <h2>Common Questions</h2>
-    <div style="max-width:800px">
-        <div class="faq-item fade-up">
-            <div class="faq-q">Do you provide hosting? <span>▼</span></div>
-            <div class="faq-a">Yes, I can set you up with free GitHub hosting or professional servers for your database needs.</div>
-        </div>
-        <div class="faq-item fade-up">
-            <div class="faq-q">Can you integrate PayPal? <span>▼</span></div>
-            <div class="faq-a">Absolutely. I handle both local (M-Pesa) and international (PayPal/Stripe) payment gateways.</div>
-        </div>
+    <div class="tag">Got Questions?</div>
+    <h2>Frequently Asked Questions</h2>
+    <p class="sub">Answers to the most common questions clients ask me.</p>
+    <div class="faq-list">
+      <div class="faq-item fade-up"><button class="faq-q">How long does it take to build my website? <span class="faq-arrow">▼</span></button><div class="faq-a">It depends on the package. Starter takes 3 days, Professional takes 5 days, and Premium takes 7–10 days. I always keep you updated throughout the process.</div></div>
+      <div class="faq-item fade-up"><button class="faq-q">How do I pay you? <span class="faq-arrow">▼</span></button><div class="faq-a">I accept M-Pesa payments. I typically ask for 50% upfront before starting and 50% on delivery. This is flexible — we can discuss what works for you.</div></div>
+      <div class="faq-item fade-up"><button class="faq-q">Will my website work on mobile phones? <span class="faq-arrow">▼</span></button><div class="faq-a">Yes! Every website I build is fully mobile-responsive. It will look great and work perfectly on phones, tablets, and computers of all sizes.</div></div>
+      <div class="faq-item fade-up"><button class="faq-q">Can I update the website myself after it's done? <span class="faq-arrow">▼</span></button><div class="faq-a">Yes. I'll hand over all the source code files so you can make changes. I also offer affordable maintenance if you'd prefer me to handle updates.</div></div>
+      <div class="faq-item fade-up"><button class="faq-q">Do you host the website too? <span class="faq-arrow">▼</span></button><div class="faq-a">I can host your website on GitHub Pages for free. A custom domain (like www.yourbusiness.com) costs around KSh 1,000–2,000/year extra.</div></div>
+      <div class="faq-item fade-up"><button class="faq-q">What if I don't like the design? <span class="faq-arrow">▼</span></button><div class="faq-a">No problem! Professional and Premium packages include revisions. I'll keep adjusting until you're 100% happy. Your satisfaction is my priority.</div></div>
     </div>
   </section>
 
-  <section id="contact" class="section alt-bg">
+  <!-- CTA -->
+  <section class="cta-section alt-bg fade-up">
+    <div class="tag">Ready to Start?</div>
+    <h2>Need a website for your business?</h2>
+    <p>I'll design and deliver a professional website that makes your business stand out. Fast turnaround, affordable pricing.</p>
+    <div class="btn-group centered">
+      <a href="https://wa.me/254741590397" target="_blank" class="btn-primary">💬 WhatsApp Me Now</a>
+      <a href="mailto:jacksonlumumba275@gmail.com" class="btn-outline">📧 Send an Email</a>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section">
+    <div class="tag">Get In Touch</div>
+    <h2>Contact Me</h2>
+    <p class="sub">Have a project in mind? Let's talk — I usually respond within a few hours.</p>
     <div class="contact-grid">
-        <div class="fade-up">
-            <span class="tag">Contact</span>
-            <h2>Let’s build something <br>extraordinary.</h2>
-            <p style="color:var(--muted); margin-bottom:2rem">jacksonlumumba275@gmail.com</p>
-            <a href="tel:+254741590397" style="color:var(--accent); text-decoration:none; font-weight:700">+254 741 590 397</a>
-        </div>
-        <div class="glass-card fade-up">
-            <input type="text" placeholder="Your Name">
-            <input type="email" placeholder="Email Address">
-            <textarea placeholder="Project Details" rows="4"></textarea>
-            <button class="nav-cta" style="width:100%; border:none; cursor:pointer">Send Message</button>
-        </div>
+      <div>
+        <a href="mailto:jacksonlumumba275@gmail.com" class="c-item"><div class="c-icon">📧</div><div><div class="c-label">Email</div><div class="c-val">jacksonlumumba275@gmail.com</div></div></a>
+        <a href="tel:+254741590397" class="c-item"><div class="c-icon">📞</div><div><div class="c-label">Phone</div><div class="c-val">+254 741 590 397</div></div></a>
+        <a href="https://wa.me/254741590397" target="_blank" class="c-item"><div class="c-icon">💬</div><div><div class="c-label">WhatsApp</div><div class="c-val">Chat with me directly</div></div></a>
+        <a href="https://github.com/jacksonlumumba2026-web" target="_blank" class="c-item"><div class="c-icon">🐙</div><div><div class="c-label">GitHub</div><div class="c-val">See my code</div></div></a>
+      </div>
+      <div class="contact-form">
+        <input type="text" id="fname" placeholder="Your Name"/>
+        <input type="email" id="femail" placeholder="Your Email"/>
+        <input type="text" id="fsubject" placeholder="Subject (e.g. I need a barber shop website)"/>
+        <textarea id="fmessage" placeholder="Tell me about your project..."></textarea>
+        <button class="btn-primary send-btn" id="send-btn">Send Message →</button>
+      </div>
     </div>
   </section>
 
-  <footer style="padding:2rem 5%; text-align:center; opacity:0.5; font-size:0.8rem; border-top:1px solid var(--border)">
-    © 2026 JACKSON LUMUMBA | BUILT IN KENYA 🇰🇪
+  <!-- FOOTER -->
+  <footer>
+    <div>© 2026 Jackson Lumumba · All rights reserved</div>
+    <div>Built with ❤️ in Kenya 🇰🇪</div>
   </footer>
 
+  <a href="https://wa.me/254741590397" class="wa-float" target="_blank">💬</a>
+
   <script>
-    // TYPEWRITER
-    const typing = document.getElementById('typing');
-    const words = ["M-Pesa Integrations.", "PayPal Solutions.", "AI Web Tools.", "Business Growth."];
-    let wIdx = 0, cIdx = 0, isDel = false;
-    function type() {
-        const cur = words[wIdx];
-        typing.textContent = isDel ? cur.substring(0, cIdx--) : cur.substring(0, cIdx++);
-        if(!isDel && cIdx === cur.length) { isDel = true; setTimeout(type, 2000); }
-        else if(isDel && cIdx === 0) { isDel = false; wIdx = (wIdx+1)%words.length; setTimeout(type, 500); }
-        else { setTimeout(type, isDel ? 50 : 100); }
-    }
-    type();
-
-    // SCROLL ANIMATIONS
-    const obs = new IntersectionObserver((es) => es.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible') }), {threshold:0.1});
-    document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
-
-    // FAQ TOGGLE
-    document.querySelectorAll('.faq-item').forEach(item => {
-        item.addEventListener('click', () => item.classList.toggle('open'));
-    });
-
-    // MOBILE MENU
-    const toggle = document.getElementById('menu-toggle');
-    const menu = document.getElementById('nav-menu');
-    toggle.addEventListener('click', () => menu.classList.toggle('open'));
+    const obs=new IntersectionObserver(e=>e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('visible')}),{threshold:0.1});
+    document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+    window.addEventListener('scroll',()=>{document.getElementById('navbar').style.background=window.scrollY>60?'rgba(10,10,15,0.99)':'rgba(10,10,15,0.95)'});
+    const toggle=document.getElementById('menu-toggle'),menu=document.getElementById('nav-menu');
+    toggle.addEventListener('click',()=>{menu.classList.toggle('open');toggle.textContent=menu.classList.contains('open')?'✕':'☰'});
+    menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{menu.classList.remove('open');toggle.textContent='☰'}));
+    document.querySelectorAll('.faq-item').forEach(item=>{item.querySelector('.faq-q').addEventListener('click',()=>{const o=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));if(!o)item.classList.add('open')})});
+    document.getElementById('send-btn').addEventListener('click',()=>{const n=document.getElementById('fname').value.trim(),m=document.getElementById('fmessage').value.trim();if(!n||!m){alert('Please fill in your Name and Message.');return}const s=document.getElementById('fsubject').value.trim(),e=document.getElementById('femail').value.trim();window.location.href=`mailto:jacksonlumumba275@gmail.com?subject=${encodeURIComponent(s||'New Inquiry from '+n)}&body=${encodeURIComponent('Hi Jackson,\n\nMy name is '+n+(e?' ('+e+')':'')+'\n\n'+m)}`});
+    document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',function(e){const t=document.querySelector(this.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'})}}));
   </script>
 </body>
 </html>
