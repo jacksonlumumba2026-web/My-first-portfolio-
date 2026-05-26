@@ -1162,49 +1162,48 @@
       <div class="pay-panel active" id="panel-mpesa">
         <div class="pay-step">
           <strong>Step 1 — Go to M-Pesa</strong>
-          Open M-Pesa on your phone → Select <em>Lipa na M-Pesa</em> → <em>Send Money</em>
+          Open M-Pesa on your phone → Select <em>Lipa na M-Pesa</em> → <em>Buy Goods & Services</em>
         </div>
         <div class="pay-step">
-          <strong>Step 2 — Enter number</strong>
-          Send to: <span class="code">0741 590 397</span>
-          <button class="copy-btn" onclick="copyText('0741590397', this)">Copy</button>
-          <br><span style="font-size:0.8rem; margin-top:0.4rem; display:block;">Name: <strong style="color:var(--text)">Jackson Lumumba</strong></span>
+          <strong>Step 2 — Enter Till Number</strong>
+          Till No: <span class="code">9034027</span>
+          <button class="copy-btn" onclick="copyText('9034027', this)">Copy</button>
+          <br><span style="font-size:0.8rem; margin-top:0.4rem; display:block;">Business: <strong style="color:var(--text)">Anthony Onyango</strong></span>
         </div>
         <div class="pay-step">
-          <strong>Step 3 — Amount</strong>
-          Amount (KSh): <span class="code" id="mpesaAmount">KSh 8,000</span>
+          <strong>Step 3 — Enter Amount (KSh)</strong>
+          <span class="code" id="mpesaAmount">KSh 8,000</span>
+          <br><span style="font-size:0.78rem; margin-top:0.3rem; display:block; color:var(--muted)">Enter this exact amount when prompted.</span>
         </div>
         <div class="pay-step">
-          <strong>Step 4 — Reference</strong>
-          Use your name or project name as the reference so I can identify your payment.
+          <strong>Step 4 — M-Pesa PIN & Confirm</strong>
+          Enter your M-Pesa PIN and confirm. You'll get an SMS confirmation instantly.
         </div>
-        <button class="pay-confirm-btn" onclick="confirmMpesa()">✅ I've Sent the Payment</button>
-        <p class="pay-note">After sending, click above and I'll confirm via WhatsApp and start your project within 2 hours.</p>
+        <div class="pay-step" style="background: rgba(0,229,255,0.04); border-color: rgba(0,229,255,0.15);">
+          <strong style="color:var(--accent);">Step 5 — Send Confirmation</strong>
+          After payment, click the button below and send me your M-Pesa confirmation code so I can verify and start your project.
+        </div>
+        <button class="pay-confirm-btn" onclick="confirmMpesa()">✅ I've Paid — Send Confirmation</button>
+        <p class="pay-note">Your project starts within 2 hours of payment confirmation.</p>
       </div>
 
       <!-- PAYPAL PANEL -->
       <div class="pay-panel" id="panel-paypal">
         <div class="pay-step">
-          <strong>PayPal Email</strong>
-          Send payment to:<br>
-          <span class="code" style="font-size:0.9rem;">jacksonlumumba275@gmail.com</span>
-          <button class="copy-btn" onclick="copyText('jacksonlumumba275@gmail.com', this)">Copy</button>
-        </div>
-        <div class="pay-step">
           <strong>Amount (USD)</strong>
           <span class="code" id="paypalAmount">$60</span>
-          <br><span style="font-size:0.78rem; margin-top:0.3rem; display:block; color:var(--muted)">Select <strong style="color:var(--text)">"Sending to a friend"</strong> to avoid extra fees.</span>
+          <br><span style="font-size:0.78rem; margin-top:0.3rem; display:block; color:var(--muted)">You'll be redirected to a secure PayPal checkout page.</span>
         </div>
         <div class="pay-step">
           <strong>Add a Note</strong>
-          Include your name + service in the PayPal note (e.g. "John — Professional Website") so I can match your payment.
+          In the PayPal notes field, include your name + service (e.g. <em>"John — Professional Website"</em>) so I can match your payment.
         </div>
         <button class="paypal-btn" onclick="openPayPal()">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.19c-.524 0-.968.382-1.05.9l-1.12 7.106zm14.146-14.42a3.35 3.35 0 0 0-.607-.541c-.013.076-.026.175-.041.254-.93 4.778-4.005 7.201-9.138 7.201h-2.19a.563.563 0 0 0-.556.479l-1.187 7.527h-.506l-.24 1.516a.56.56 0 0 0 .554.647h3.882c.46 0 .85-.334.922-.788.06-.26.76-4.852.816-5.09a.932.932 0 0 1 .923-.788h.58c3.76 0 6.705-1.528 7.565-5.946.36-1.847.174-3.388-.777-4.471z"/></svg>
-          Open PayPal
+          Pay Now with PayPal
         </button>
-        <button class="pay-confirm-btn" style="background:var(--accent2);" onclick="confirmPaypal()">✅ I've Sent the Payment</button>
-        <p class="pay-note">After paying, click above. I'll verify and start your project within 2 hours.</p>
+        <button class="pay-confirm-btn" style="background:var(--accent2);" onclick="confirmPaypal()">✅ I've Completed Payment</button>
+        <p class="pay-note">After paying on PayPal, click above to notify me on WhatsApp. I'll verify and start your project within 2 hours.</p>
       </div>
     </div>
   </div>
@@ -1274,7 +1273,7 @@
     const amt = document.getElementById('mpesaAmount').textContent;
     closeModal();
     window.open('https://wa.me/254741590397?text=' + encodeURIComponent(
-      `Hi Jackson! 👋 I've just sent an M-Pesa payment for *${pkg}* (${amt}). Please confirm and let's get started!`
+      `Hi Jackson! 👋 I've just paid via M-Pesa Till No. 9034027 for *${pkg}* (${amt}).\n\nMy M-Pesa confirmation code: [paste your code here]\n\nPlease confirm and let's get started!`
     ), '_blank');
   }
   function confirmPaypal() {
@@ -1285,8 +1284,16 @@
       `Hi Jackson! 👋 I've just sent a PayPal payment for *${pkg}* (${amt}). Please confirm and let's get started!`
     ), '_blank');
   }
+  const paypalLinks = {
+    'Starter Package': 'https://www.paypal.com/ncp/payment/4RM88Z7EY93E2',
+    'Professional Package': 'https://www.paypal.com/ncp/payment/PMBNRPSWBPVAG',
+    'Premium Package': 'https://www.paypal.com/ncp/payment/9NWT7CGMEDN8J',
+    'Website + Google Maps Bundle': 'https://www.paypal.com/ncp/payment/PMBNRPSWBPVAG'
+  };
   function openPayPal() {
-    window.open('https://paypal.me/jacksonlumumba', '_blank');
+    const pkg = document.getElementById('modalPkgName').textContent;
+    const link = paypalLinks[pkg] || 'https://www.paypal.com/ncp/payment/PMBNRPSWBPVAG';
+    window.open(link, '_blank');
   }
 
 
