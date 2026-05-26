@@ -660,6 +660,134 @@
     transform: translateY(0);
   }
 
+  /* PAYMENT MODAL */
+  .modal-overlay {
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.85);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    display: none; align-items: center; justify-content: center;
+    padding: 1rem;
+  }
+  .modal-overlay.open { display: flex; }
+  .modal {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    width: 100%; max-width: 480px;
+    overflow: hidden;
+    animation: modalIn 0.3s ease;
+  }
+  @keyframes modalIn {
+    from { opacity: 0; transform: translateY(30px) scale(0.97); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  .modal-header {
+    padding: 1.5rem 1.5rem 0;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .modal-header h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.2rem; font-weight: 800;
+  }
+  .modal-close {
+    background: rgba(255,255,255,0.06);
+    border: none; color: var(--text);
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    cursor: pointer; font-size: 1rem;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s;
+  }
+  .modal-close:hover { background: rgba(255,255,255,0.12); }
+  .modal-body { padding: 1.5rem; }
+  .modal-pkg {
+    background: rgba(0,229,255,0.06);
+    border: 1px solid rgba(0,229,255,0.15);
+    border-radius: 10px;
+    padding: 0.8rem 1rem;
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 1.5rem;
+  }
+  .modal-pkg-name { font-size: 0.9rem; font-weight: 600; }
+  .modal-pkg-price { font-family: 'Syne', sans-serif; font-size: 1.3rem; font-weight: 800; color: var(--accent); }
+  .pay-tabs {
+    display: flex; gap: 0.5rem; margin-bottom: 1.5rem;
+  }
+  .pay-tab {
+    flex: 1; padding: 0.7rem;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--muted);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem; font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex; align-items: center; justify-content: center; gap: 0.4rem;
+  }
+  .pay-tab.active {
+    border-color: rgba(0,229,255,0.4);
+    background: rgba(0,229,255,0.08);
+    color: var(--accent);
+  }
+  .pay-panel { display: none; flex-direction: column; gap: 1rem; }
+  .pay-panel.active { display: flex; }
+  .pay-step {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1rem;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: var(--muted);
+  }
+  .pay-step strong { color: var(--text); display: block; margin-bottom: 0.3rem; font-size: 0.8rem; letter-spacing: 0.5px; text-transform: uppercase; }
+  .pay-step .code {
+    font-family: monospace;
+    background: rgba(0,229,255,0.08);
+    color: var(--accent);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    letter-spacing: 1px;
+  }
+  .copy-btn {
+    background: none; border: 1px solid var(--border);
+    color: var(--muted); font-size: 0.75rem;
+    padding: 0.2rem 0.6rem; border-radius: 4px;
+    cursor: pointer; margin-left: 0.5rem;
+    transition: all 0.2s; font-family: 'DM Sans', sans-serif;
+  }
+  .copy-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .pay-confirm-btn {
+    background: #00b300;
+    color: #fff;
+    border: none; padding: 0.85rem;
+    border-radius: 8px; font-weight: 700;
+    font-size: 0.95rem; cursor: pointer;
+    font-family: 'Syne', sans-serif;
+    transition: box-shadow 0.3s, transform 0.2s;
+    width: 100%;
+  }
+  .pay-confirm-btn:hover { box-shadow: 0 0 20px rgba(0,200,0,0.35); transform: translateY(-1px); }
+  .paypal-btn {
+    background: #0070ba;
+    color: #fff;
+    border: none; padding: 0.85rem;
+    border-radius: 8px; font-weight: 700;
+    font-size: 0.95rem; cursor: pointer;
+    font-family: 'Syne', sans-serif;
+    transition: box-shadow 0.3s, transform 0.2s;
+    width: 100%;
+    display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+  }
+  .paypal-btn:hover { box-shadow: 0 0 20px rgba(0,112,186,0.4); transform: translateY(-1px); }
+  .pay-note {
+    font-size: 0.75rem; color: var(--muted);
+    text-align: center; line-height: 1.5; font-weight: 300;
+  }
+
   /* MOBILE NAV */
   @media (max-width: 768px) {
     .nav-links {
@@ -810,7 +938,7 @@
 
     <div class="project-card reveal">
       <div class="project-preview">
-        <iframe src="https://iconicfunitures.co.ke" title="Iconic Furnitures" loading="lazy" scrolling="no"></iframe>
+        <iframe src="https://iconicfurnitures.co.ke" title="Iconic Furnitures" loading="lazy" scrolling="no"></iframe>
         <div class="project-overlay"></div>
         <div class="project-tag">E-Commerce</div>
       </div>
@@ -818,8 +946,8 @@
         <h3>Iconic Furnitures</h3>
         <p>A sleek furniture e-commerce website showcasing product collections with a modern shopping experience built for conversions.</p>
         <div class="project-links">
-          <a href="https://iconicfunitures.co.ke" target="_blank" class="link-live">↗ Live Site</a>
-          <a href="https://wa.me/254741590397?text=I want a site like iconicfunitures.co.ke" target="_blank" class="link-wa">💬 Get This</a>
+          <a href="https://iconicfurnitures.co.ke" target="_blank" class="link-live">↗ Live Site</a>
+          <a href="https://wa.me/254741590397?text=I want a site like iconicfurnitures.co.ke" target="_blank" class="link-wa">💬 Get This</a>
         </div>
       </div>
     </div>
@@ -868,7 +996,7 @@
         <li><span class="cross">✕</span> No custom animations</li>
         <li><span class="cross">✕</span> No revisions</li>
       </ul>
-      <a href="https://wa.me/254741590397?text=Hi Jackson, I'm interested in the Starter package ($25)" target="_blank" class="btn-pricing btn-pricing-outline">Get Started</a>
+      <button onclick="openModal('Starter Package','$25','KSh 3,000')" class="btn-pricing btn-pricing-outline">Get Started</button>
     </div>
 
     <div class="pricing-card featured reveal">
@@ -888,7 +1016,7 @@
         <li><span class="check">✓</span> 2 revisions</li>
         <li><span class="check">✓</span> Delivered in 5 days</li>
       </ul>
-      <a href="https://wa.me/254741590397?text=Hi Jackson, I'm interested in the Professional package ($60)" target="_blank" class="btn-pricing btn-pricing-primary">Get Started</a>
+      <button onclick="openModal('Professional Package','$60','KSh 8,000')" class="btn-pricing btn-pricing-primary">Get Started</button>
     </div>
 
     <div class="pricing-card reveal">
@@ -907,7 +1035,7 @@
         <li><span class="check">✓</span> Unlimited revisions</li>
         <li><span class="check">✓</span> Delivered in 7–10 days</li>
       </ul>
-      <a href="https://wa.me/254741590397?text=Hi Jackson, I'm interested in the Premium package ($115)" target="_blank" class="btn-pricing btn-pricing-outline">Get Started</a>
+      <button onclick="openModal('Premium Package','$115','KSh 15,000')" class="btn-pricing btn-pricing-outline">Get Started</button>
     </div>
 
   </div>
@@ -921,7 +1049,7 @@
       <div class="new">$75</div>
       <div class="old">$80 · Save $5</div>
     </div>
-    <a href="https://wa.me/254741590397?text=Hi Jackson, I'm interested in the Website + Google Maps Bundle ($75)" target="_blank" class="btn-primary" style="white-space:nowrap; font-family:'Syne',sans-serif; font-size:0.9rem;">Get the Bundle</a>
+    <button onclick="openModal('Website + Google Maps Bundle','$75','KSh 10,000')" class="btn-primary" style="white-space:nowrap; font-family:'Syne',sans-serif; font-size:0.9rem; border:none; cursor:pointer;">Get the Bundle</button>
   </div>
 </section>
 
@@ -1013,6 +1141,75 @@
   </div>
 </footer>
 
+<!-- PAYMENT MODAL -->
+<div class="modal-overlay" id="payModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h3>Complete Payment</h3>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-pkg">
+        <div class="modal-pkg-name" id="modalPkgName">Professional Package</div>
+        <div class="modal-pkg-price" id="modalPkgPrice">$60</div>
+      </div>
+      <div class="pay-tabs">
+        <button class="pay-tab active" onclick="switchTab('mpesa', this)">🇰🇪 M-Pesa</button>
+        <button class="pay-tab" onclick="switchTab('paypal', this)">🌍 PayPal</button>
+      </div>
+
+      <!-- M-PESA PANEL -->
+      <div class="pay-panel active" id="panel-mpesa">
+        <div class="pay-step">
+          <strong>Step 1 — Go to M-Pesa</strong>
+          Open M-Pesa on your phone → Select <em>Lipa na M-Pesa</em> → <em>Send Money</em>
+        </div>
+        <div class="pay-step">
+          <strong>Step 2 — Enter number</strong>
+          Send to: <span class="code">0741 590 397</span>
+          <button class="copy-btn" onclick="copyText('0741590397', this)">Copy</button>
+          <br><span style="font-size:0.8rem; margin-top:0.4rem; display:block;">Name: <strong style="color:var(--text)">Jackson Lumumba</strong></span>
+        </div>
+        <div class="pay-step">
+          <strong>Step 3 — Amount</strong>
+          Amount (KSh): <span class="code" id="mpesaAmount">KSh 8,000</span>
+        </div>
+        <div class="pay-step">
+          <strong>Step 4 — Reference</strong>
+          Use your name or project name as the reference so I can identify your payment.
+        </div>
+        <button class="pay-confirm-btn" onclick="confirmMpesa()">✅ I've Sent the Payment</button>
+        <p class="pay-note">After sending, click above and I'll confirm via WhatsApp and start your project within 2 hours.</p>
+      </div>
+
+      <!-- PAYPAL PANEL -->
+      <div class="pay-panel" id="panel-paypal">
+        <div class="pay-step">
+          <strong>PayPal Email</strong>
+          Send payment to:<br>
+          <span class="code" style="font-size:0.9rem;">jacksonlumumba275@gmail.com</span>
+          <button class="copy-btn" onclick="copyText('jacksonlumumba275@gmail.com', this)">Copy</button>
+        </div>
+        <div class="pay-step">
+          <strong>Amount (USD)</strong>
+          <span class="code" id="paypalAmount">$60</span>
+          <br><span style="font-size:0.78rem; margin-top:0.3rem; display:block; color:var(--muted)">Select <strong style="color:var(--text)">"Sending to a friend"</strong> to avoid extra fees.</span>
+        </div>
+        <div class="pay-step">
+          <strong>Add a Note</strong>
+          Include your name + service in the PayPal note (e.g. "John — Professional Website") so I can match your payment.
+        </div>
+        <button class="paypal-btn" onclick="openPayPal()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.19c-.524 0-.968.382-1.05.9l-1.12 7.106zm14.146-14.42a3.35 3.35 0 0 0-.607-.541c-.013.076-.026.175-.041.254-.93 4.778-4.005 7.201-9.138 7.201h-2.19a.563.563 0 0 0-.556.479l-1.187 7.527h-.506l-.24 1.516a.56.56 0 0 0 .554.647h3.882c.46 0 .85-.334.922-.788.06-.26.76-4.852.816-5.09a.932.932 0 0 1 .923-.788h.58c3.76 0 6.705-1.528 7.565-5.946.36-1.847.174-3.388-.777-4.471z"/></svg>
+          Open PayPal
+        </button>
+        <button class="pay-confirm-btn" style="background:var(--accent2);" onclick="confirmPaypal()">✅ I've Sent the Payment</button>
+        <p class="pay-note">After paying, click above. I'll verify and start your project within 2 hours.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- WHATSAPP FLOAT -->
 <a href="https://wa.me/254741590397" target="_blank" class="wa-float" title="Chat on WhatsApp">💬</a>
 
@@ -1043,7 +1240,56 @@
   }, { threshold: 0.1 });
   reveals.forEach(r => observer.observe(r));
 
-  // WhatsApp form
+  // Payment Modal
+  function openModal(pkgName, usdPrice, kesPrice) {
+    document.getElementById('modalPkgName').textContent = pkgName;
+    document.getElementById('modalPkgPrice').textContent = usdPrice;
+    document.getElementById('mpesaAmount').textContent = kesPrice;
+    document.getElementById('paypalAmount').textContent = usdPrice;
+    document.getElementById('payModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    document.getElementById('payModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.getElementById('payModal').addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+  });
+  function switchTab(tab, el) {
+    document.querySelectorAll('.pay-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.pay-panel').forEach(p => p.classList.remove('active'));
+    el.classList.add('active');
+    document.getElementById('panel-' + tab).classList.add('active');
+  }
+  function copyText(text, btn) {
+    navigator.clipboard.writeText(text).then(() => {
+      btn.textContent = 'Copied!';
+      btn.style.color = 'var(--accent)';
+      setTimeout(() => { btn.textContent = 'Copy'; btn.style.color = ''; }, 2000);
+    });
+  }
+  function confirmMpesa() {
+    const pkg = document.getElementById('modalPkgName').textContent;
+    const amt = document.getElementById('mpesaAmount').textContent;
+    closeModal();
+    window.open('https://wa.me/254741590397?text=' + encodeURIComponent(
+      `Hi Jackson! 👋 I've just sent an M-Pesa payment for *${pkg}* (${amt}). Please confirm and let's get started!`
+    ), '_blank');
+  }
+  function confirmPaypal() {
+    const pkg = document.getElementById('modalPkgName').textContent;
+    const amt = document.getElementById('paypalAmount').textContent;
+    closeModal();
+    window.open('https://wa.me/254741590397?text=' + encodeURIComponent(
+      `Hi Jackson! 👋 I've just sent a PayPal payment for *${pkg}* (${amt}). Please confirm and let's get started!`
+    ), '_blank');
+  }
+  function openPayPal() {
+    window.open('https://paypal.me/jacksonlumumba', '_blank');
+  }
+
+
   function sendForm() {
     const name = document.getElementById('fname').value || 'Unknown';
     const email = document.getElementById('femail').value || 'Not provided';
