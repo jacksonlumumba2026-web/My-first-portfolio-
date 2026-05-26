@@ -3,7 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jackson Lumumba | Web Developer</title>
+<title>Jackson Lumumba | Web Developer — Websites for Businesses Worldwide</title>
+<meta name="description" content="Jackson Lumumba is a self-taught frontend developer from Kenya building fast, modern, and affordable websites for businesses worldwide. M-Pesa & PayPal accepted.">
+<meta name="keywords" content="web developer Kenya, affordable website design, freelance web developer, business website, Google Maps setup, frontend developer Nairobi">
+<meta name="author" content="Jackson Lumumba">
+<meta property="og:title" content="Jackson Lumumba | Web Developer">
+<meta property="og:description" content="Fast, modern websites for businesses worldwide. Starting from $25. M-Pesa & PayPal accepted.">
+<meta property="og:image" content="https://jacksonlumumba2026-web.github.io/My-first-portfolio-/profile.jpg">
+<meta property="og:url" content="https://irenehousehold.co.ke">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -788,7 +797,238 @@
     text-align: center; line-height: 1.5; font-weight: 300;
   }
 
-  /* MOBILE NAV */
+  /* LOADER */
+  .loader {
+    position: fixed; inset: 0;
+    background: var(--bg);
+    z-index: 9999;
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 1.2rem;
+    transition: opacity 0.5s ease, visibility 0.5s;
+  }
+  .loader.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+  .loader-logo {
+    font-family: 'Syne', sans-serif;
+    font-size: 2rem; font-weight: 800;
+    color: var(--text); letter-spacing: -1px;
+  }
+  .loader-logo span { color: var(--accent); }
+  .loader-bar {
+    width: 160px; height: 2px;
+    background: var(--border);
+    border-radius: 2px; overflow: hidden;
+  }
+  .loader-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    border-radius: 2px;
+    animation: loadFill 1.4s ease forwards;
+  }
+  @keyframes loadFill {
+    from { width: 0%; }
+    to { width: 100%; }
+  }
+
+  /* ABOUT */
+  #about { background: var(--bg); }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 4rem; align-items: center;
+    max-width: 960px; margin: 0 auto;
+  }
+  .about-img-wrap {
+    position: relative;
+  }
+  .about-img-wrap img {
+    width: 100%;
+    border-radius: 20px;
+    display: block;
+    filter: grayscale(10%);
+    aspect-ratio: 3/4; object-fit: cover;
+    object-position: top;
+  }
+  .about-img-border {
+    position: absolute; inset: -8px;
+    border: 1px solid rgba(0,229,255,0.2);
+    border-radius: 24px;
+    z-index: -1;
+  }
+  .about-img-badge {
+    position: absolute; bottom: -16px; right: -16px;
+    background: var(--accent);
+    color: var(--bg);
+    font-family: 'Syne', sans-serif;
+    font-size: 0.78rem; font-weight: 800;
+    padding: 0.6rem 1rem;
+    border-radius: 10px;
+    text-align: center;
+    line-height: 1.3;
+    box-shadow: 0 8px 24px rgba(0,229,255,0.3);
+  }
+  .about-text { }
+  .about-text p {
+    color: var(--muted);
+    font-size: 0.97rem;
+    line-height: 1.8;
+    font-weight: 300;
+    margin-bottom: 1.2rem;
+  }
+  .about-text p strong { color: var(--text); font-weight: 600; }
+  .skills-grid {
+    display: flex; flex-wrap: wrap; gap: 0.6rem;
+    margin: 1.5rem 0 2rem;
+  }
+  .skill-pill {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-size: 0.8rem; font-weight: 500;
+    padding: 0.35rem 0.9rem;
+    border-radius: 100px;
+    display: flex; align-items: center; gap: 0.4rem;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .skill-pill:hover {
+    border-color: rgba(0,229,255,0.3);
+    background: rgba(0,229,255,0.05);
+  }
+  .about-availability {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    background: rgba(0,255,100,0.07);
+    border: 1px solid rgba(0,255,100,0.2);
+    color: #00e676;
+    font-size: 0.82rem; font-weight: 500;
+    padding: 0.45rem 1rem;
+    border-radius: 100px;
+  }
+  .about-availability::before {
+    content: '';
+    width: 7px; height: 7px;
+    background: #00e676;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  /* PROCESS */
+  #process { background: var(--surface); }
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0; position: relative;
+    margin-top: 3rem;
+  }
+  .process-step {
+    padding: 2rem 1.5rem;
+    position: relative;
+    text-align: center;
+  }
+  .process-step::after {
+    content: '→';
+    position: absolute; right: -10px; top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.2rem;
+    opacity: 0.4;
+  }
+  .process-step:last-child::after { display: none; }
+  .process-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 3rem; font-weight: 800;
+    color: rgba(0,229,255,0.08);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+  .process-icon {
+    font-size: 1.8rem; margin-bottom: 0.8rem;
+    display: block;
+  }
+  .process-step h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1rem; font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  .process-step p {
+    color: var(--muted);
+    font-size: 0.83rem;
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  /* TESTIMONIALS */
+  #testimonials { background: var(--bg); }
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem; margin-top: 3rem;
+  }
+  .testimonial-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.8rem;
+    transition: border-color 0.3s, transform 0.3s;
+    position: relative;
+  }
+  .testimonial-card:hover {
+    border-color: rgba(0,229,255,0.2);
+    transform: translateY(-4px);
+  }
+  .testimonial-quote {
+    font-size: 2.5rem;
+    color: var(--accent);
+    opacity: 0.3;
+    font-family: Georgia, serif;
+    line-height: 1;
+    margin-bottom: 0.8rem;
+  }
+  .testimonial-text {
+    color: var(--muted);
+    font-size: 0.9rem;
+    line-height: 1.7;
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+  }
+  .testimonial-author {
+    display: flex; align-items: center; gap: 0.8rem;
+  }
+  .testimonial-avatar {
+    width: 42px; height: 42px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem; font-weight: 700;
+    color: var(--bg);
+    font-family: 'Syne', sans-serif;
+    flex-shrink: 0;
+  }
+  .testimonial-name {
+    font-weight: 600; font-size: 0.9rem;
+  }
+  .testimonial-role {
+    color: var(--muted); font-size: 0.78rem;
+  }
+  .testimonial-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.8rem;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .testimonial-card:hover {
+    border-color: rgba(0,229,255,0.2);
+    transform: translateY(-4px);
+  }
+    color: var(--gold); font-size: 0.8rem;
+    margin-bottom: 0.8rem;
+  }
+
+  @media (max-width: 768px) {
+    .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .about-img-wrap { max-width: 280px; margin: 0 auto; }
+    .process-step::after { display: none; }
+  }
   @media (max-width: 768px) {
     .nav-links {
       display: none;
@@ -818,10 +1058,18 @@
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursorRing"></div>
 
+<!-- LOADER -->
+<div class="loader" id="loader">
+  <div class="loader-logo">Welcome to <span>Jackson Web Solutions</span></div>
+  <div style="color:var(--muted); font-size:0.8rem; margin-top:-0.5rem; font-weight:300;">Building your digital presence...</div>
+  <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+</div>
+
 <!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo">Jackson<span>.</span></a>
+  <a href="#" class="nav-logo">Jackson <span>Web Solutions</span></a>
   <ul class="nav-links" id="navLinks">
+    <li><a href="#about">About</a></li>
     <li><a href="#services">Services</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#pricing">Pricing</a></li>
@@ -863,6 +1111,70 @@
         <div class="stat-num">5<span>d</span></div>
         <div class="stat-label">Avg. Delivery</div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-img-wrap reveal">
+      <img src="https://jacksonlumumba2026-web.github.io/My-first-portfolio-/file_000000007ec471f5ad07af3b86221ed7.png" alt="Jackson Lumumba — Web Developer">
+      <div class="about-img-border"></div>
+      <div class="about-img-badge">1 Year<br>Experience</div>
+    </div>
+    <div class="about-text reveal">
+      <div class="section-label">Who I am</div>
+      <h2 class="section-title">Self-taught. Passionate.<br>Results-driven.</h2>
+      <p>Hi, I'm <strong>Jackson Lumumba</strong> — a self-taught frontend developer from Kenya with 1 year of hands-on experience building real websites for real businesses. I didn't learn from a classroom; I learned by building, failing, and shipping.</p>
+      <p>I specialize in creating <strong>fast, modern, and mobile-responsive websites</strong> that don't just look great — they help businesses attract customers and grow. From household services to furniture stores to pest control companies, I've helped local businesses establish a strong online presence.</p>
+      <p>I also help businesses get found on <strong>Google Maps</strong> so when someone nearby searches for your service, your business shows up first. Every project I take on gets my full attention — clean code, sharp design, and fast delivery.</p>
+      <div class="skills-grid">
+        <span class="skill-pill">🌐 HTML5</span>
+        <span class="skill-pill">🎨 CSS3</span>
+        <span class="skill-pill">⚡ JavaScript</span>
+        <span class="skill-pill">📱 Responsive Design</span>
+        <span class="skill-pill">🐙 GitHub</span>
+        <span class="skill-pill">📍 Google My Business</span>
+        <span class="skill-pill">🚀 GitHub Pages</span>
+        <span class="skill-pill">💬 WhatsApp Integration</span>
+      </div>
+      <div class="about-availability">Currently available for new projects</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="reveal" style="text-align:center; margin-bottom:3.5rem;">
+    <div class="section-label">How it works</div>
+    <h2 class="section-title">From idea to live website<br>in 4 simple steps</h2>
+    <p class="section-sub" style="margin:0.8rem auto 0; text-align:center;">No technical knowledge needed. I handle everything.</p>
+  </div>
+  <div class="process-grid reveal">
+    <div class="process-step">
+      <div class="process-num">01</div>
+      <div class="process-icon">💬</div>
+      <h3>We Talk</h3>
+      <p>You WhatsApp me your business idea, goals, and any references you like. Takes 10 minutes.</p>
+    </div>
+    <div class="process-step">
+      <div class="process-num">02</div>
+      <div class="process-icon">💳</div>
+      <h3>You Pay 50%</h3>
+      <p>Pay half upfront via M-Pesa or PayPal. This secures your spot and I start immediately.</p>
+    </div>
+    <div class="process-step">
+      <div class="process-num">03</div>
+      <div class="process-icon">🛠️</div>
+      <h3>I Build</h3>
+      <p>I design and develop your site. You get progress updates and can request changes anytime.</p>
+    </div>
+    <div class="process-step">
+      <div class="process-num">04</div>
+      <div class="process-icon">🚀</div>
+      <h3>We Launch</h3>
+      <p>You approve, pay the remaining 50%, and your site goes live. Done. Your business is online.</p>
     </div>
   </div>
 </section>
@@ -968,6 +1280,53 @@
       </div>
     </div>
 
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials" style="background: var(--surface);">
+  <div class="reveal" style="text-align:center; margin-bottom:3rem;">
+    <div class="section-label">Client feedback</div>
+    <h2 class="section-title">What clients say</h2>
+    <p class="section-sub" style="margin:0.8rem auto 0; text-align:center;">Real businesses. Real results.</p>
+  </div>
+  <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap:1.5rem; max-width:960px; margin:0 auto;">
+    <div class="testimonial-card reveal">
+      <div class="testimonial-stars">★★★★★</div>
+      <div class="testimonial-quote">"</div>
+      <p class="testimonial-text">Jackson built our website within days and it looks incredibly professional. Our customers keep complimenting it and we've seen more inquiries since going online. Best investment for our business!</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">I</div>
+        <div>
+          <div class="testimonial-name">Irene W.</div>
+          <div class="testimonial-role">Owner, Irene Household Services</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card reveal">
+      <div class="testimonial-stars">★★★★★</div>
+      <div class="testimonial-quote">"</div>
+      <p class="testimonial-text">Very professional and fast. He understood exactly what we needed for our furniture store and delivered beyond expectations. Our online presence has never been better. Highly recommend!</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">F</div>
+        <div>
+          <div class="testimonial-name">Furniture Store Owner</div>
+          <div class="testimonial-role">Iconic Furnitures, Kenya</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card reveal">
+      <div class="testimonial-stars">★★★★★</div>
+      <div class="testimonial-quote">"</div>
+      <p class="testimonial-text">Jackson built our pest control website and bookings have increased significantly. It looks sharp, loads fast, and works perfectly on mobile. Exactly what our business needed to grow.</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">P</div>
+        <div>
+          <div class="testimonial-name">Pestokil Team</div>
+          <div class="testimonial-role">Pestokil Kenya</div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1132,7 +1491,7 @@
 
 <!-- FOOTER -->
 <footer>
-  <p>© 2026 Jackson Lumumba · Web Developer · Available worldwide 🌍</p>
+  <p>© 2026 <strong style="color:var(--text)">Jackson Web Solutions</strong> · Available worldwide 🌍 · Built with ❤️ in Kenya 🇰🇪</p>
   <div class="footer-links">
     <a href="#services">Services</a>
     <a href="#projects">Projects</a>
