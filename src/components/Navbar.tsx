@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { waLink } from '../lib/whatsapp';
+import { trackWhatsAppClick } from '../lib/analytics';
+import logoMark from '../assets/logo-mark.webp';
 
 const LINKS = [
   { href: '#services', label: 'Services' },
@@ -44,8 +46,11 @@ export default function Navbar() {
         }`}
       >
         <nav className="section-inner flex items-center justify-between h-[72px] px-5 sm:px-8 lg:px-[5%] lg:max-w-none">
-          <a href="#top" className="font-display text-[17px] font-bold tracking-tight text-white">
-            Jackson <span className="text-gradient-gold">Web</span> Solutions
+          <a href="#top" className="flex items-center gap-2.5">
+            <img src={logoMark} alt="Jackson Web Solutions" className="w-9 h-9 rounded-lg object-cover" />
+            <span className="hidden sm:block font-display text-[16px] font-bold tracking-tight text-white">
+              Jackson <span className="text-gradient-gold">Web</span> Solutions
+            </span>
           </a>
 
           <ul className="hidden md:flex items-center gap-9">
@@ -64,9 +69,7 @@ export default function Navbar() {
           </ul>
 
           <a
-            href={waLink("Hi Jackson, I'd like to discuss a website project")}
-            target="_blank"
-            rel="noreferrer"
+            href="#brief"
             className="hidden md:inline-flex items-center gap-2 bg-gold text-ink font-bold text-[13px] px-5 py-[10px] rounded-full transition-all hover:bg-gold-light hover:-translate-y-0.5 hover:shadow-gold"
           >
             Start Your Project
@@ -114,11 +117,21 @@ export default function Navbar() {
                 </a>
               ))}
               <a
+                href="#brief"
+                onClick={() => setOpen(false)}
+                className="text-[15px] font-extrabold text-gold py-4 border-b border-white/[0.05]"
+              >
+                Start Your Project →
+              </a>
+              <a
                 href={waLink("Hi Jackson, I'd like to discuss a website project")}
                 target="_blank"
                 rel="noreferrer"
-                onClick={() => setOpen(false)}
-                className="text-[15px] font-extrabold text-gold py-4"
+                onClick={() => {
+                  trackWhatsAppClick('nav_mobile');
+                  setOpen(false);
+                }}
+                className="text-[15px] font-semibold text-white/60 hover:text-white py-4"
               >
                 💬 WhatsApp Us Now
               </a>

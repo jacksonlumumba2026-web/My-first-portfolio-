@@ -93,11 +93,11 @@ export const projects: Project[] = [
     name: 'Waridi Del Art',
     domain: 'warididelart.co.ke',
     url: 'https://warididelart.co.ke',
-    tag: 'Art & Décor',
-    icon: '🌹',
+    tag: 'Furniture & Décor',
+    icon: '🪑',
     description:
-      'Boutique floral & artisan décor studio with a warm, editorial gallery layout and WhatsApp-first ordering for custom pieces.',
-    gradient: 'from-[#1a0a14] to-[#2d1220]',
+      'Furniture & home décor brand with a warm, editorial gallery layout, product showcases, and WhatsApp-first ordering for custom pieces.',
+    gradient: 'from-[#1a1410] to-[#2d2116]',
     waLabel: 'warididelart.co.ke',
   },
 ];

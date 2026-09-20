@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import { fadeUp, fadeUpSmall, staggerContainer, viewportOnce } from '../lib/motion';
-import { waLink } from '../lib/whatsapp';
 import jackson from '../assets/jackson.webp';
 
 const STATS = [
@@ -49,12 +48,10 @@ export default function Hero() {
 
           <motion.div variants={fadeUp} className="flex flex-wrap gap-3.5 mb-14">
             <a
-              href={waLink("Hi Jackson, I'd like to discuss a website project")}
-              target="_blank"
-              rel="noreferrer"
+              href="#brief"
               className="inline-flex items-center gap-2 bg-gold text-ink font-bold text-sm px-7 py-[14px] rounded-xl transition-all hover:bg-gold-light hover:-translate-y-0.5 hover:shadow-gold"
             >
-              💬 Start Your Project
+              Start Your Project
             </a>
             <a
               href="#work"

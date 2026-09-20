@@ -1,5 +1,6 @@
 import Reveal from './Reveal';
 import { waLink } from '../lib/whatsapp';
+import { trackWhatsAppClick } from '../lib/analytics';
 
 export default function FinalCTA() {
   return (
@@ -27,6 +28,7 @@ export default function FinalCTA() {
             href={waLink("Hi Jackson, I'd like a free website audit for my business")}
             target="_blank"
             rel="noreferrer"
+            onClick={() => trackWhatsAppClick('final_cta_audit')}
             className="inline-flex items-center gap-2 bg-gold text-ink font-bold text-[15px] px-8 py-4 rounded-xl transition-all hover:bg-gold-light hover:-translate-y-0.5 hover:shadow-gold"
           >
             💬 Get a Free Audit

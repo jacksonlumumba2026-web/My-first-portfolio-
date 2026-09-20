@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { waLink } from '../lib/whatsapp';
+import { trackWhatsAppClick } from '../lib/analytics';
 
 export default function WhatsAppFloat() {
   return (
@@ -7,6 +8,7 @@ export default function WhatsAppFloat() {
       href={waLink("Hi Jackson, I'd like to discuss a project")}
       target="_blank"
       rel="noreferrer"
+      onClick={() => trackWhatsAppClick('float_button')}
       initial={{ opacity: 0, scale: 0.5 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ delay: 1, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
