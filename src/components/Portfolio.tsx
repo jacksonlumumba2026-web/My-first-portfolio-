@@ -3,6 +3,7 @@ import { fadeUp, staggerContainer, viewportOnce } from '../lib/motion';
 import Reveal from './Reveal';
 import { projects } from '../data/projects';
 import { waLink } from '../lib/whatsapp';
+import { trackWhatsAppClick } from '../lib/analytics';
 
 export default function Portfolio() {
   return (
@@ -66,6 +67,7 @@ export default function Portfolio() {
                     href={waLink(`I want a site like ${p.waLabel}`)}
                     target="_blank"
                     rel="noreferrer"
+                    onClick={() => trackWhatsAppClick(`portfolio_${p.domain}`)}
                     className="flex-1 text-center py-[9px] rounded-lg text-[12px] font-bold bg-green-50 text-green-700 border border-green-200 hover:bg-green-100 transition-colors"
                   >
                     💬 Get This

@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { fadeUp, staggerContainer, viewportOnce } from '../lib/motion';
 import Reveal from './Reveal';
 import { waLink } from '../lib/whatsapp';
+import { trackWhatsAppClick } from '../lib/analytics';
 
 const PLANS = [
   {
@@ -125,6 +126,7 @@ export default function Pricing() {
                 href={waLink(`Hi Jackson, I'm interested in the ${p.name} package (${p.price})`)}
                 target="_blank"
                 rel="noreferrer"
+                onClick={() => trackWhatsAppClick(`pricing_${p.name}`)}
                 className={`block w-full text-center py-3.5 rounded-xl text-sm font-bold transition-all ${
                   p.featured
                     ? 'bg-gold text-ink hover:bg-gold-light hover:-translate-y-0.5 hover:shadow-gold'

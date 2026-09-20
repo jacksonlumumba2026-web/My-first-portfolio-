@@ -1,4 +1,6 @@
 import { waLink } from '../lib/whatsapp';
+import { trackWhatsAppClick } from '../lib/analytics';
+import logo from '../assets/logo.webp';
 
 export default function Footer() {
   return (
@@ -6,8 +8,11 @@ export default function Footer() {
       <div className="section-inner">
         <div className="flex flex-col md:flex-row justify-between gap-10 pb-10 border-b border-white/[0.05]">
           <div className="max-w-xs">
-            <div className="font-display text-lg font-bold text-white mb-3">
-              Jackson <span className="text-gradient-gold">Web</span> Solutions
+            <div className="flex items-center gap-3 mb-4">
+              <img src={logo} alt="Jackson Web Solutions" className="w-11 h-11 rounded-xl object-cover" />
+              <div className="font-display text-lg font-bold text-white">
+                Jackson <span className="text-gradient-gold">Web</span> Solutions
+              </div>
             </div>
             <p className="text-white/40 text-[12.5px] leading-relaxed">
               Premium websites for Kenyan businesses — designed to be found on Google, trusted by
@@ -47,6 +52,7 @@ export default function Footer() {
                     href={waLink("Hi Jackson, I'd like to discuss a project")}
                     target="_blank"
                     rel="noreferrer"
+                    onClick={() => trackWhatsAppClick('footer')}
                     className="text-white/40 text-[13px] hover:text-gold transition-colors"
                   >
                     WhatsApp Us
