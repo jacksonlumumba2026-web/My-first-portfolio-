@@ -1,0 +1,25 @@
+{
+  "brandId": "7036996",
+  "timezone": "Africa/Nairobi",
+  "repo": "jacksonlumumba2026-web/My-first-portfolio-",
+  "branch": "claude/portfolio-redesign-o5bwuk",
+  "postTimes": ["10:00:00", "18:00:00"],
+  "instructions": "Each pillar becomes one ~10s video via: ./make_video.sh <out.mp4> hook1 hook2 detail1 detail2 cta1 cta2 (all six text args, each under ~32 chars - see comment at top of make_video.sh). Copy the rendered file into ../public/videos/<slug>.mp4, commit+push, get its raw.githubusercontent.com URL (branch = the 'branch' field above), then call Metricool createScheduledPost with providers facebook+instagram+tiktok+youtube, facebookData.type=REEL, instagramData.type=REEL, tiktokData.title=<short title>, youtubeData={title,type:short,privacy:public}, autoPublish:true. Always pick the two lowest-index unused pillars next; mark used:true + lastUsedDate after scheduling. Once all are used, reset every used flag to false and start again from the top (rephrase slightly on repeat). Occasionally (roughly 1 in 5 posts) reuse an existing finished site-demo clip from public/videos/ (portfolio-rapid-tour.mp4, pricing-reveal.mp4, everything-included.mp4, myth-vs-reality.mp4, phone-built-story.mp4) for variety instead of a new pillar.",
+  "pillars": [
+    {"slug": "website-mistakes", "used": true, "lastUsedDate": "2026-09-26", "hook": ["3 WEBSITE MISTAKES", "costing you customers"], "detail": ["No WhatsApp. No mobile.", "10+ second load times."], "cta": ["We fix all 3.", "Jackson Web Solutions"]},
+    {"slug": "website-stat", "used": true, "lastUsedDate": "2026-09-26", "hook": ["3 IN 4", "customers judge your business"], "detail": ["by your website", "before they ever call you"], "cta": ["Make the first impression count.", "Jackson Web Solutions"]},
+    {"slug": "faq-timeline", "used": false, "hook": ["HOW LONG DOES IT", "take to build a website?"], "detail": ["Most sites: 5-7 days.", "Built on a phone, no excuses."], "cta": ["Fast, not cheap-looking.", "Jackson Web Solutions"]},
+    {"slug": "diy-vs-pro", "used": false, "hook": ["DIY BUILDER", "vs a real website"], "detail": ["One looks like a template.", "One looks like you're serious."], "cta": ["Look serious. We'll build it.", "Jackson Web Solutions"]},
+    {"slug": "whatsapp-integration", "used": false, "hook": ["YOUR WEBSITE SHOULD", "text you the lead"], "detail": ["Every site: one-tap WhatsApp.", "No forms to a dead inbox."], "cta": ["Leads that reach you.", "Jackson Web Solutions"]},
+    {"slug": "seo-101", "used": false, "hook": ["IF GOOGLE CAN'T", "find your business..."], "detail": ["...neither can your next", "customer. We build for that."], "cta": ["Get found. Get chosen.", "Jackson Web Solutions"]},
+    {"slug": "mobile-first", "used": false, "hook": ["9 IN 10 VISITORS", "are on a phone"], "detail": ["So why do so many sites", "still break on mobile?"], "cta": ["Built mobile-first. Always.", "Jackson Web Solutions"]},
+    {"slug": "cost-of-no-website", "used": false, "hook": ["NO WEBSITE?", "you're invisible online"], "detail": ["Customers search before", "they call. Are you there?"], "cta": ["Stop losing customers.", "Jackson Web Solutions"]},
+    {"slug": "what-is-premium", "used": false, "hook": ["WHAT MAKES A WEBSITE", "look 'premium'?"], "detail": ["Not price. Spacing,", "speed, and a clear message."], "cta": ["We build for that.", "Jackson Web Solutions"]},
+    {"slug": "hiring-questions", "used": false, "hook": ["5 QUESTIONS TO ASK", "before hiring a designer"], "detail": ["Do you own the site?", "Is it fast? Mobile-tested?"], "cta": ["We answer all 5 upfront.", "Jackson Web Solutions"]},
+    {"slug": "speed-matters", "used": false, "hook": ["3 SECONDS", "is all you get"], "detail": ["A slow site loses over half", "its visitors before it loads"], "cta": ["Fast sites. Every build.", "Jackson Web Solutions"]},
+    {"slug": "client-win-prepegola", "used": false, "hook": ["REAL CLIENT,", "real results"], "detail": ["Prepegola Builders went from", "invisible to a trusted brand."], "cta": ["You could be next.", "Jackson Web Solutions"]},
+    {"slug": "phone-built-flex", "used": false, "hook": ["NO LAPTOP.", "no studio. no excuse."], "detail": ["Every site in this portfolio", "was built entirely on a phone."], "cta": ["What's your excuse?", "Jackson Web Solutions"]},
+    {"slug": "trust-signals", "used": false, "hook": ["WOULD YOU TRUST", "this site with your money?"], "detail": ["Outdated design and broken", "links kill trust in seconds."], "cta": ["We build trust in.", "Jackson Web Solutions"]},
+    {"slug": "one-page-vs-multi", "used": false, "hook": ["ONE PAGE OR A FULL", "multi-page site?"], "detail": ["Depends on your business.", "We help you pick the right one."], "cta": ["Not sure? Just ask.", "Jackson Web Solutions"]}
+  ]
+}
